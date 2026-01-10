@@ -1,5 +1,7 @@
+import { useMemo } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { format } from 'date-fns';
 import { TaskCard } from '@/features/tasks';
 import { useTaskStore } from '@/shared/store';
 import { Task } from '@/shared/types';
@@ -16,9 +18,18 @@ export function TaskList({
   emptyMessage = "No tasks for today. Tap + to add one!"
 }: TaskListProps) {
   const navigate = useNavigate();
-  const { getTodaysTasks } = useTaskStore();
+  // Subscribe to the tasks array directly to trigger re-renders when tasks change
+  const allTasks = useTaskStore((state) => state.tasks);
 
-  const tasks = propTasks || getTodaysTasks();
+  // Compute today's tasks from the subscribed tasks array
+  const todaysTasks = useMemo(() => {
+    const todayStr = format(new Date(), 'yyyy-MM-dd');
+    return allTasks.filter(
+      (t) => t.dueDate.split('T')[0] === todayStr && !t.completed
+    );
+  }, [allTasks]);
+
+  const tasks = propTasks || todaysTasks;
 
   const handleTaskPress = (taskId: string) => {
     navigate(`/tasks/${taskId}`);

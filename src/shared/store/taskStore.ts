@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { Task, CreateTaskInput, UpdateTaskInput, Subtask } from '@/shared/types';
 import { v4 as uuidv4 } from 'uuid';
+import { format } from 'date-fns';
 
 interface TaskState {
   tasks: Task[];
@@ -140,16 +141,17 @@ export const useTaskStore = create<TaskState>()(
       getTaskById: (id) => get().tasks.find((t) => t.id === id),
 
       getTodaysTasks: () => {
-        const today = new Date().toISOString().split('T')[0];
+        // Compare date portion only (YYYY-MM-DD) to avoid timezone issues
+        const todayStr = format(new Date(), 'yyyy-MM-dd');
         return get().tasks.filter(
-          (t) => t.dueDate.split('T')[0] === today && !t.completed
+          (t) => t.dueDate.split('T')[0] === todayStr && !t.completed
         );
       },
 
       getCompletedTodayCount: () => {
-        const today = new Date().toISOString().split('T')[0];
+        const todayStr = format(new Date(), 'yyyy-MM-dd');
         return get().tasks.filter(
-          (t) => t.completedAt?.split('T')[0] === today
+          (t) => t.completedAt && t.completedAt.split('T')[0] === todayStr
         ).length;
       },
     }),

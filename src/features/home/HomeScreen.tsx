@@ -1,5 +1,8 @@
+import { useEffect } from 'react';
 import { PageContainer } from '@/shared/components/PageContainer';
 import { useAuth } from '@/app/providers';
+import { useSettingsStore } from '@/shared/store';
+import { useAnalytics } from '@/features/analytics/hooks/useAnalytics';
 import { DailyGoals } from './components/DailyGoals';
 import { TaskList } from './components/TaskList';
 
@@ -12,8 +15,15 @@ function getGreeting(): string {
 
 export function HomeScreen() {
   const { user } = useAuth();
+  const { dailyGoal, updateBestStreak } = useSettingsStore();
+  const analytics = useAnalytics('week');
   const greeting = getGreeting();
   const displayName = user?.email?.split('@')[0] || user?.user_metadata?.name || 'User';
+
+  // Update best streak when current streak changes
+  useEffect(() => {
+    updateBestStreak(analytics.currentStreak);
+  }, [analytics.currentStreak, updateBestStreak]);
 
   return (
     <PageContainer>
@@ -22,7 +32,7 @@ export function HomeScreen() {
           {greeting}, {displayName}
         </h1>
 
-        <DailyGoals dailyGoal={10} />
+        <DailyGoals dailyGoal={dailyGoal} />
 
         <TaskList />
       </div>

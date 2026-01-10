@@ -36,7 +36,8 @@ export const useAuthStore = create<AuthState>()(
     {
       name: 'taskflow-auth',
       partialize: (state) => ({
-        // Only persist minimal auth state
+        // Persist auth state and user for guest mode
+        user: state.user,
         isAuthenticated: state.isAuthenticated
       }),
     }

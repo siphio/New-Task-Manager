@@ -33,7 +33,14 @@ export function AuthProvider({ children }: AuthProviderProps) {
   } = useAuthStore();
 
   useEffect(() => {
-    // Get initial session
+    // Skip Supabase session check if user is already authenticated (guest mode)
+    // Guest users have id 'guest-user' and don't have a Supabase session
+    if (user?.id === 'guest-user') {
+      setLoading(false);
+      return;
+    }
+
+    // Get initial session for real users
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
       setLoading(false);
@@ -48,7 +55,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
     );
 
     return () => subscription.unsubscribe();
-  }, [setSession, setLoading]);
+  }, [user, setSession, setLoading]);
 
   const signIn = async (email: string, password: string) => {
     try {

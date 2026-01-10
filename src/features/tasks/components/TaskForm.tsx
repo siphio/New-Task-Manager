@@ -48,13 +48,17 @@ export function TaskForm({ task, onSuccess }: TaskFormProps) {
     setError(null);
 
     try {
+      // Store just the date portion (YYYY-MM-DD) to avoid timezone issues
+      // Adding T00:00:00 makes it a valid ISO-like format for parsing elsewhere
+      const dueDateStr = `${dueDate}T00:00:00`;
+
       if (isEditing && task) {
         updateTask(task.id, {
           title: title.trim(),
           description: description.trim() || undefined,
           category,
           priority,
-          dueDate: new Date(dueDate).toISOString(),
+          dueDate: dueDateStr,
           subtasks,
         });
       } else {
@@ -63,7 +67,7 @@ export function TaskForm({ task, onSuccess }: TaskFormProps) {
           description: description.trim() || undefined,
           category,
           priority,
-          dueDate: new Date(dueDate).toISOString(),
+          dueDate: dueDateStr,
           subtasks: subtasks.map(s => ({ title: s.title, completed: s.completed })),
         };
         addTask(input, user?.id || 'guest-user');
