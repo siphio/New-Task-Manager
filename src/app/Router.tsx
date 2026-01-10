@@ -6,6 +6,7 @@ import { HomeScreen } from '@/features/home/HomeScreen';
 import { CalendarScreen } from '@/features/calendar/CalendarScreen';
 import { AnalyticsScreen } from '@/features/analytics/AnalyticsScreen';
 import { ProfileScreen } from '@/features/profile/ProfileScreen';
+import { TaskDetailsScreen } from '@/features/tasks/TaskDetailsScreen';
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { isAuthenticated, isLoading } = useAuth();
@@ -37,6 +38,7 @@ export function Router() {
         }
       >
         <Route path="/" element={<HomeScreen />} />
+        <Route path="/tasks/:id" element={<TaskDetailsScreen />} />
         <Route path="/calendar" element={<CalendarScreen />} />
         <Route path="/analytics" element={<AnalyticsScreen />} />
         <Route path="/profile" element={<ProfileScreen />} />

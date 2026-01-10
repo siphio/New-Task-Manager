@@ -2,6 +2,7 @@ import { Outlet } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { BottomNav } from '@/shared/components/BottomNav';
 import { FAB } from '@/shared/components/FAB';
+import { TaskDrawer } from '@/features/tasks';
 
 export function Layout() {
   return (
@@ -11,6 +12,7 @@ export function Layout() {
       </AnimatePresence>
       <FAB />
       <BottomNav />
+      <TaskDrawer />
     </div>
   );
 }
