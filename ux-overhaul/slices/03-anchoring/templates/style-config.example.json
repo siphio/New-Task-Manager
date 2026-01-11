@@ -1,0 +1,171 @@
+{
+  "generatedAt": "2026-01-10T12:00:00.000Z",
+  "viewport": "mobile",
+  "styleDirection": "modern minimal with subtle shadows",
+  "colorPalette": {
+    "primary": "#3B82F6",
+    "secondary": "#6366F1",
+    "accent": "#10B981",
+    "background": "#FFFFFF",
+    "surface": "#F9FAFB",
+    "text": "#111827",
+    "textMuted": "#6B7280",
+    "border": "#E5E7EB",
+    "error": "#EF4444",
+    "success": "#10B981",
+    "warning": "#F59E0B"
+  },
+  "typography": {
+    "fontFamily": "Inter, system-ui, sans-serif",
+    "headingWeight": "600",
+    "bodyWeight": "400"
+  },
+  "spacing": {
+    "base": 4,
+    "scale": [4, 8, 12, 16, 24, 32, 48, 64]
+  },
+  "borderRadius": "rounded",
+  "shadowStyle": "subtle",
+  "anchors": [
+    {
+      "slot": 1,
+      "type": "hero",
+      "name": "Dashboard Hero",
+      "description": "Main dashboard screen establishing visual direction",
+      "imagePath": "./generated/anchors/anchor-01-hero.png",
+      "validated": true,
+      "validatedAt": "2026-01-10T12:05:00.000Z",
+      "promptUsed": "Modern minimal SaaS dashboard application main screen. Mobile-first design with bottom navigation..."
+    },
+    {
+      "slot": 2,
+      "type": "screen",
+      "name": "Flow Screen 2",
+      "description": "Second screen in user flow - Settings",
+      "imagePath": "./generated/anchors/anchor-02-screen.png",
+      "validated": true,
+      "validatedAt": "2026-01-10T12:08:00.000Z",
+      "promptUsed": "Modern minimal user interface design for settings screen..."
+    },
+    {
+      "slot": 3,
+      "type": "screen",
+      "name": "Flow Screen 3",
+      "description": "Third screen in user flow - Profile",
+      "imagePath": "./generated/anchors/anchor-03-screen.png",
+      "validated": true,
+      "validatedAt": "2026-01-10T12:11:00.000Z",
+      "promptUsed": "Modern minimal user interface design for profile screen..."
+    },
+    {
+      "slot": 4,
+      "type": "screen",
+      "name": "Flow Screen 4",
+      "description": "Fourth screen in user flow - List View",
+      "imagePath": "./generated/anchors/anchor-04-screen.png",
+      "validated": true,
+      "validatedAt": "2026-01-10T12:14:00.000Z",
+      "promptUsed": "Modern minimal user interface design for list view..."
+    },
+    {
+      "slot": 5,
+      "type": "screen",
+      "name": "Flow Screen 5",
+      "description": "Fifth screen in user flow - Detail View",
+      "imagePath": "./generated/anchors/anchor-05-screen.png",
+      "validated": true,
+      "validatedAt": "2026-01-10T12:17:00.000Z",
+      "promptUsed": "Modern minimal user interface design for detail view..."
+    },
+    {
+      "slot": 6,
+      "type": "screen",
+      "name": "Flow Screen 6",
+      "description": "Sixth screen in user flow - Form",
+      "imagePath": "./generated/anchors/anchor-06-screen.png",
+      "validated": true,
+      "validatedAt": "2026-01-10T12:20:00.000Z",
+      "promptUsed": "Modern minimal user interface design for form screen..."
+    },
+    {
+      "slot": 7,
+      "type": "typography",
+      "name": "Heading Specimens",
+      "description": "Typography specimen for H1-H6 headings",
+      "imagePath": "./generated/anchors/anchor-07-typography.png",
+      "validated": true,
+      "validatedAt": "2026-01-10T12:23:00.000Z",
+      "promptUsed": "Typography specimen sheet showing Inter font family in modern minimal style..."
+    },
+    {
+      "slot": 8,
+      "type": "typography",
+      "name": "Body Specimens",
+      "description": "Typography specimen for body text, paragraphs, lists",
+      "imagePath": "./generated/anchors/anchor-08-typography.png",
+      "validated": true,
+      "validatedAt": "2026-01-10T12:26:00.000Z",
+      "promptUsed": "Typography specimen showing body text, paragraphs, blockquotes..."
+    },
+    {
+      "slot": 9,
+      "type": "typography",
+      "name": "UI Text Specimens",
+      "description": "Typography specimen for labels, buttons, captions",
+      "imagePath": "./generated/anchors/anchor-09-typography.png",
+      "validated": true,
+      "validatedAt": "2026-01-10T12:29:00.000Z",
+      "promptUsed": "Typography specimen showing labels, buttons, input text, captions..."
+    },
+    {
+      "slot": 10,
+      "type": "state",
+      "name": "Loading State",
+      "description": "Loading/skeleton state indicator",
+      "imagePath": "./generated/anchors/anchor-10-state.png",
+      "validated": true,
+      "validatedAt": "2026-01-10T12:32:00.000Z",
+      "promptUsed": "Modern minimal dashboard showing loading skeleton state..."
+    },
+    {
+      "slot": 11,
+      "type": "state",
+      "name": "Empty State",
+      "description": "Empty state with guidance and suggested actions",
+      "imagePath": "./generated/anchors/anchor-11-state.png",
+      "validated": true,
+      "validatedAt": "2026-01-10T12:35:00.000Z",
+      "promptUsed": "Modern minimal dashboard showing empty state with friendly illustration..."
+    },
+    {
+      "slot": 12,
+      "type": "state",
+      "name": "Error State",
+      "description": "Error state with recovery options",
+      "imagePath": "./generated/anchors/anchor-12-state.png",
+      "validated": true,
+      "validatedAt": "2026-01-10T12:38:00.000Z",
+      "promptUsed": "Modern minimal dashboard showing error state with clear error message..."
+    },
+    {
+      "slot": 13,
+      "type": "state",
+      "name": "Success State",
+      "description": "Success/confirmation state",
+      "imagePath": "./generated/anchors/anchor-13-state.png",
+      "validated": true,
+      "validatedAt": "2026-01-10T12:41:00.000Z",
+      "promptUsed": "Modern minimal dashboard showing success state with confirmation message..."
+    },
+    {
+      "slot": 14,
+      "type": "iconography",
+      "name": "Icon Set",
+      "description": "Icon set specimen sheet with common UI icons",
+      "imagePath": "./generated/anchors/anchor-14-iconography.png",
+      "validated": true,
+      "validatedAt": "2026-01-10T12:44:00.000Z",
+      "promptUsed": "Icon set specimen sheet showing common UI icons in modern minimal style..."
+    }
+  ]
+}

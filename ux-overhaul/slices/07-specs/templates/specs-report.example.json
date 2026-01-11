@@ -1,0 +1,247 @@
+{
+  "generatedAt": "2026-01-10T12:00:00.000Z",
+  "appName": "FinanceTracker",
+  "viewport": "mobile",
+  "designTokens": {
+    "colors": {
+      "primary": "#3B82F6",
+      "secondary": "#6366F1",
+      "accent": "#10B981",
+      "background": "#FFFFFF",
+      "surface": "#F9FAFB",
+      "text": "#111827",
+      "textMuted": "#6B7280",
+      "border": "#E5E7EB",
+      "error": "#EF4444",
+      "success": "#10B981",
+      "warning": "#F59E0B"
+    },
+    "typography": {
+      "fontFamily": "Inter, system-ui, sans-serif",
+      "fontFamilyMono": "ui-monospace, monospace",
+      "fontSize": {
+        "sm": "0.875rem",
+        "base": "1rem",
+        "lg": "1.125rem",
+        "xl": "1.25rem"
+      },
+      "fontWeight": {
+        "normal": 400,
+        "medium": 500,
+        "semibold": 600,
+        "bold": 700
+      },
+      "lineHeight": {
+        "tight": "1.25",
+        "normal": "1.5"
+      },
+      "letterSpacing": {
+        "normal": "0em"
+      }
+    },
+    "spacing": {
+      "base": "4px",
+      "scale": {
+        "0": "0px",
+        "1": "4px",
+        "2": "8px",
+        "3": "12px",
+        "4": "16px"
+      }
+    },
+    "borderRadius": {
+      "none": "0px",
+      "sm": "4px",
+      "md": "8px",
+      "lg": "12px",
+      "full": "9999px"
+    },
+    "shadows": {
+      "none": "none",
+      "sm": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+      "md": "0 4px 6px -1px rgb(0 0 0 / 0.1)",
+      "lg": "0 10px 15px -3px rgb(0 0 0 / 0.1)",
+      "xl": "0 20px 25px -5px rgb(0 0 0 / 0.1)"
+    }
+  },
+  "designSystem": {
+    "title": "Modern minimalist Design System",
+    "generatedAt": "2026-01-10T12:00:00.000Z",
+    "sections": [
+      {
+        "id": "overview",
+        "title": "Overview",
+        "content": "Design system overview..."
+      },
+      {
+        "id": "colors",
+        "title": "Color Palette",
+        "content": "Color documentation..."
+      }
+    ],
+    "fullMarkdown": "# Modern minimalist Design System\n\n..."
+  },
+  "screens": [
+    {
+      "screenId": "screen-dashboard",
+      "screenName": "Dashboard",
+      "screenType": "dashboard",
+      "imagePath": "generated/screens/dashboard-propagated.png",
+      "layout": {
+        "structure": "Responsive grid of cards with summary metrics",
+        "mainAreas": ["header", "metrics-row", "content", "quick-actions"],
+        "navigation": "Bottom tab bar",
+        "responsiveNotes": ["Stack cards vertically on mobile"]
+      },
+      "components": [
+        {
+          "id": "comp-1",
+          "name": "Header Card",
+          "shadcnComponent": "Card",
+          "props": {
+            "className": "bg-surface"
+          },
+          "tokens": {
+            "background": "var(--color-surface)",
+            "borderRadius": "var(--radius-md)"
+          },
+          "notes": ["Contains app logo and user avatar"]
+        },
+        {
+          "id": "comp-2",
+          "name": "Metric Card",
+          "shadcnComponent": "Card",
+          "props": {
+            "className": "hover:shadow-md"
+          },
+          "tokens": {
+            "shadow": "var(--shadow-sm)"
+          },
+          "notes": ["Use Badge for status indicators"]
+        }
+      ],
+      "states": [
+        {
+          "stateType": "loading",
+          "imagePath": "generated/screens/dashboard-loading.png",
+          "description": "Skeleton placeholders for content",
+          "triggerConditions": ["Initial page load"],
+          "components": ["Skeleton"]
+        },
+        {
+          "stateType": "empty",
+          "description": "Empty state with CTA",
+          "triggerConditions": ["No data available"],
+          "components": ["Button"]
+        }
+      ],
+      "implementationNotes": [
+        "Use React Query for data fetching",
+        "Implement skeleton loading"
+      ],
+      "uxRequirements": [
+        "Metric cards should be tappable",
+        "Loading states should maintain layout"
+      ],
+      "estimatedComplexity": "medium"
+    },
+    {
+      "screenId": "screen-transactions",
+      "screenName": "Transactions",
+      "screenType": "list",
+      "imagePath": "generated/screens/transactions-propagated.png",
+      "layout": {
+        "structure": "Scrollable list with search and filter",
+        "mainAreas": ["search-bar", "filter-chips", "list", "pagination"],
+        "navigation": "Back button + bottom tabs"
+      },
+      "components": [
+        {
+          "id": "comp-3",
+          "name": "Search Input",
+          "shadcnComponent": "Input",
+          "props": {
+            "type": "search",
+            "placeholder": "Search transactions..."
+          },
+          "tokens": {
+            "borderRadius": "var(--radius-md)"
+          }
+        },
+        {
+          "id": "comp-4",
+          "name": "Transaction Item",
+          "shadcnComponent": "Card",
+          "props": {},
+          "tokens": {
+            "background": "var(--color-surface)"
+          }
+        }
+      ],
+      "states": [
+        {
+          "stateType": "loading",
+          "description": "Skeleton list items"
+        },
+        {
+          "stateType": "empty",
+          "description": "No transactions found message"
+        }
+      ],
+      "implementationNotes": [
+        "Implement virtual scrolling for long lists",
+        "Add pull-to-refresh"
+      ],
+      "uxRequirements": [
+        "Search should be debounced",
+        "Filters should persist across navigation"
+      ],
+      "estimatedComplexity": "medium"
+    }
+  ],
+  "componentMap": [
+    {
+      "screenType": "dashboard",
+      "recommendedComponents": ["Card", "CardHeader", "CardContent", "Badge", "Progress", "Tabs"],
+      "layoutPattern": "Grid of cards with summary metrics",
+      "notes": ["Use Card for each metric block"]
+    },
+    {
+      "screenType": "list",
+      "recommendedComponents": ["Table", "Input", "Pagination", "Badge", "DropdownMenu"],
+      "layoutPattern": "Search bar + scrollable list + pagination",
+      "notes": ["Use Table for dense data, Card for visual items"]
+    }
+  ],
+  "implementationOrder": {
+    "phases": [
+      {
+        "phase": 1,
+        "name": "Foundation",
+        "screens": ["screen-dashboard"],
+        "description": "Core layout and navigation",
+        "dependencies": [],
+        "estimatedEffort": "medium"
+      },
+      {
+        "phase": 2,
+        "name": "Core Functionality",
+        "screens": ["screen-transactions"],
+        "description": "Main app features",
+        "dependencies": ["screen-dashboard"],
+        "estimatedEffort": "medium"
+      }
+    ],
+    "totalScreens": 2,
+    "criticalPath": ["screen-dashboard", "screen-transactions"],
+    "recommendedParallelization": []
+  },
+  "summary": {
+    "totalScreens": 2,
+    "totalComponents": 4,
+    "tokensGenerated": true,
+    "documentationGenerated": true,
+    "implementationPhasesCount": 2,
+    "completenessScore": 92
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "appName": "TaskFlow",
+  "baseUrl": "http://localhost:3000",
+  "auth": {
+    "type": "form",
+    "loginUrl": "/login",
+    "usernameSelector": "input[name='email']",
+    "passwordSelector": "input[name='password']",
+    "submitSelector": "button[type='submit']",
+    "credentials": {
+      "username": "demo@example.com",
+      "password": "demo123"
+    }
+  },
+  "flows": [
+    {
+      "name": "main-navigation",
+      "description": "Core application navigation flow",
+      "steps": [
+        {
+          "action": "navigate",
+          "url": "/dashboard"
+        },
+        {
+          "action": "wait",
+          "waitMs": 1000
+        },
+        {
+          "action": "screenshot",
+          "name": "dashboard",
+          "description": "Main dashboard with task overview",
+          "captureStates": ["default", "loading"]
+        },
+        {
+          "action": "click",
+          "selector": "[data-testid='nav-tasks']"
+        },
+        {
+          "action": "wait",
+          "waitMs": 500
+        },
+        {
+          "action": "screenshot",
+          "name": "task-list",
+          "description": "List of all tasks",
+          "captureStates": ["default", "empty"]
+        }
+      ]
+    },
+    {
+      "name": "task-management",
+      "description": "Task creation and editing flow",
+      "steps": [
+        {
+          "action": "click",
+          "selector": "[data-testid='add-task-button']"
+        },
+        {
+          "action": "wait",
+          "waitMs": 500
+        },
+        {
+          "action": "screenshot",
+          "name": "add-task-modal",
+          "description": "Modal for creating a new task"
+        },
+        {
+          "action": "click",
+          "selector": "[data-testid='cancel-button']"
+        },
+        {
+          "action": "click",
+          "selector": "[data-testid='task-item']:first-child"
+        },
+        {
+          "action": "wait",
+          "waitMs": 500
+        },
+        {
+          "action": "screenshot",
+          "name": "task-detail",
+          "description": "Detailed view of a single task"
+        }
+      ]
+    },
+    {
+      "name": "settings",
+      "description": "User settings flow",
+      "steps": [
+        {
+          "action": "click",
+          "selector": "[data-testid='nav-settings']"
+        },
+        {
+          "action": "wait",
+          "waitMs": 500
+        },
+        {
+          "action": "screenshot",
+          "name": "settings-general",
+          "description": "General settings page"
+        },
+        {
+          "action": "click",
+          "selector": "[data-testid='settings-notifications']"
+        },
+        {
+          "action": "wait",
+          "waitMs": 500
+        },
+        {
+          "action": "screenshot",
+          "name": "settings-notifications",
+          "description": "Notification preferences"
+        }
+      ]
+    }
+  ]
+}

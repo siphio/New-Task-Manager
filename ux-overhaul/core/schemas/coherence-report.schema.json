@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "coherence-report.schema.json",
+  "title": "UX Coherence Report",
+  "type": "object",
+  "required": ["validatedAt", "appName", "viewport", "passNumber", "maxPasses", "screens", "outliers", "summary"],
+  "properties": {
+    "validatedAt": { "type": "string", "format": "date-time" },
+    "appName": { "type": "string" },
+    "viewport": { "type": "string", "enum": ["mobile", "tablet", "desktop", "desktop-xl"] },
+    "passNumber": { "type": "integer", "minimum": 1 },
+    "maxPasses": { "type": "integer", "minimum": 1 },
+    "screens": { "type": "array", "items": { "$ref": "#/$defs/screenCoherence" } },
+    "outliers": { "type": "array", "items": { "$ref": "#/$defs/outlierInfo" } },
+    "regenerations": { "type": "array", "items": { "$ref": "#/$defs/regenerationRecord" } },
+    "summary": { "$ref": "#/$defs/coherenceSummary" }
+  },
+  "$defs": {
+    "outlierReason": {
+      "type": "string",
+      "enum": ["color_drift", "style_inconsistency", "layout_deviation", "component_mismatch", "spacing_variance", "typography_inconsistency"]
+    },
+    "screenCoherence": {
+      "type": "object",
+      "required": ["screenId", "screenName", "screenPath", "coherenceScore", "passed"],
+      "properties": {
+        "screenId": { "type": "string" },
+        "screenName": { "type": "string" },
+        "screenPath": { "type": "string" },
+        "coherenceScore": { "type": "number", "minimum": 0, "maximum": 100 },
+        "passed": { "type": "boolean" },
+        "issues": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "outlierInfo": {
+      "type": "object",
+      "required": ["screenId", "screenName", "screenPath", "outlierScore", "reasons", "recommendations", "shouldRegenerate"],
+      "properties": {
+        "screenId": { "type": "string" },
+        "screenName": { "type": "string" },
+        "screenPath": { "type": "string" },
+        "outlierScore": { "type": "number", "minimum": 0, "maximum": 100 },
+        "reasons": { "type": "array", "items": { "$ref": "#/$defs/outlierReason" } },
+        "recommendations": { "type": "array", "items": { "type": "string" } },
+        "shouldRegenerate": { "type": "boolean" }
+      }
+    },
+    "regenerationRecord": {
+      "type": "object",
+      "required": ["screenId", "passNumber", "reason", "success", "attempts", "cost"],
+      "properties": {
+        "screenId": { "type": "string" },
+        "passNumber": { "type": "integer", "minimum": 1 },
+        "reason": { "type": "string" },
+        "success": { "type": "boolean" },
+        "attempts": { "type": "integer", "minimum": 1 },
+        "cost": { "type": "number", "minimum": 0 }
+      }
+    },
+    "coherenceSummary": {
+      "type": "object",
+      "required": ["totalScreens", "coherentCount", "outlierCount", "overallCoherenceScore", "passNumber", "totalPasses"],
+      "properties": {
+        "totalScreens": { "type": "integer", "minimum": 0 },
+        "coherentCount": { "type": "integer", "minimum": 0 },
+        "outlierCount": { "type": "integer", "minimum": 0 },
+        "regeneratedCount": { "type": "integer", "minimum": 0 },
+        "overallCoherenceScore": { "type": "number", "minimum": 0, "maximum": 100 },
+        "passNumber": { "type": "integer", "minimum": 1 },
+        "totalPasses": { "type": "integer", "minimum": 1 },
+        "totalRegenerationCost": { "type": "number", "minimum": 0 }
+      }
+    }
+  }
+}

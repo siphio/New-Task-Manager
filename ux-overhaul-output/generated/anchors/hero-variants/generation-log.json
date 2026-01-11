@@ -1,0 +1,21 @@
+{
+  "generatedAt": "2026-01-11T01:10:13.300Z",
+  "variants": [
+    "generated/anchors/hero-variants/hero-variant-1.png",
+    "generated/anchors/hero-variants/hero-variant-2.png",
+    "generated/anchors/hero-variants/hero-variant-3.png",
+    "generated/anchors/hero-variants/hero-variant-4.png"
+  ],
+  "styleConfig": {
+    "styleDirection": "Modern, elegant task management app with cool purple-blue accent colors. Rounded corners (20px radius), soft layered shadows, Plus Jakarta Sans typography. Dark mode with deep charcoal background.",
+    "colors": {
+      "background": "#1a1d23",
+      "card": "#222830",
+      "primary": "#7c5cff",
+      "foreground": "#e8ecf4",
+      "muted": "#9ca3af",
+      "destructive": "#f87171"
+    }
+  },
+  "cost": 0.6
+}

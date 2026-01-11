@@ -1,0 +1,136 @@
+{
+  "propagatedAt": "2024-01-15T10:30:00.000Z",
+  "appName": "Task Manager Pro",
+  "viewport": "mobile",
+  "batchSize": 5,
+  "screens": [
+    {
+      "screenId": "main-dashboard",
+      "screenName": "Dashboard",
+      "screenType": "dashboard",
+      "originalPath": "screenshots/main-dashboard.png",
+      "propagatedPath": "generated/screens/main-dashboard-propagated.png",
+      "success": true,
+      "attempts": 1,
+      "cost": 0.15,
+      "strengthUsed": 0.60,
+      "improvementsApplied": [
+        "Improve information hierarchy for key metrics",
+        "Add consistent spacing between sections",
+        "Ensure touch targets are at least 44x44px"
+      ]
+    },
+    {
+      "screenId": "task-list",
+      "screenName": "Task List",
+      "screenType": "list",
+      "originalPath": "screenshots/task-list.png",
+      "propagatedPath": "generated/screens/task-list-propagated.png",
+      "success": true,
+      "attempts": 2,
+      "cost": 0.30,
+      "strengthUsed": 0.55,
+      "improvementsApplied": [
+        "Add visual distinction between completed and pending tasks",
+        "Improve scan-ability with consistent item styling",
+        "Add clear action buttons for each item"
+      ]
+    },
+    {
+      "screenId": "task-detail",
+      "screenName": "Task Detail",
+      "screenType": "detail",
+      "originalPath": "screenshots/task-detail.png",
+      "propagatedPath": "generated/screens/task-detail-propagated.png",
+      "success": true,
+      "attempts": 1,
+      "cost": 0.15,
+      "strengthUsed": 0.60,
+      "improvementsApplied": [
+        "Organize content into clear sections",
+        "Add visual hierarchy to metadata"
+      ]
+    },
+    {
+      "screenId": "add-task-form",
+      "screenName": "Add Task Form",
+      "screenType": "form",
+      "originalPath": "screenshots/add-task-form.png",
+      "propagatedPath": "generated/screens/add-task-form-propagated.png",
+      "success": true,
+      "attempts": 1,
+      "cost": 0.15,
+      "strengthUsed": 0.65,
+      "improvementsApplied": [
+        "Group related form fields together",
+        "Add clear field labels and helper text",
+        "Show validation states visually"
+      ]
+    },
+    {
+      "screenId": "settings",
+      "screenName": "Settings",
+      "screenType": "settings",
+      "originalPath": "screenshots/settings.png",
+      "propagatedPath": "",
+      "success": false,
+      "attempts": 3,
+      "cost": 0.45,
+      "strengthUsed": 0.60,
+      "improvementsApplied": [
+        "Organize settings into logical groups",
+        "Add clear toggle states"
+      ],
+      "error": "Generation failed after 3 attempts: API timeout"
+    },
+    {
+      "screenId": "login",
+      "screenName": "Login",
+      "screenType": "auth",
+      "originalPath": "screenshots/login.png",
+      "propagatedPath": "generated/screens/login-propagated.png",
+      "success": true,
+      "attempts": 1,
+      "cost": 0.15,
+      "strengthUsed": 0.55,
+      "improvementsApplied": [
+        "Build trust with clear branding",
+        "Make primary action prominent",
+        "Minimize distractions"
+      ]
+    }
+  ],
+  "summary": {
+    "totalScreens": 6,
+    "successCount": 5,
+    "failureCount": 1,
+    "totalCost": 1.35,
+    "averageAttempts": 1.5,
+    "byScreenType": {
+      "dashboard": {
+        "count": 1,
+        "successRate": 100
+      },
+      "list": {
+        "count": 1,
+        "successRate": 100
+      },
+      "detail": {
+        "count": 1,
+        "successRate": 100
+      },
+      "form": {
+        "count": 1,
+        "successRate": 100
+      },
+      "settings": {
+        "count": 1,
+        "successRate": 0
+      },
+      "auth": {
+        "count": 1,
+        "successRate": 100
+      }
+    }
+  }
+}

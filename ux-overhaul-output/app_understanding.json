@@ -1,0 +1,174 @@
+{
+  "appName": "TaskFlow",
+  "capturedAt": "2026-01-11T01:03:00.000Z",
+  "viewport": {
+    "name": "mobile",
+    "width": 390,
+    "height": 844,
+    "aspectRatio": "195:422"
+  },
+  "screens": [
+    {
+      "id": "login",
+      "name": "Login",
+      "flowName": "auth_flow",
+      "url": "/login",
+      "screenshotPath": "screenshots/login.png",
+      "screenType": "auth",
+      "description": "Authentication screen with email/password login, sign up option, and guest mode access",
+      "components": [
+        { "type": "heading", "content": "TaskFlow" },
+        { "type": "text", "content": "Welcome back" },
+        { "type": "input", "label": "Email", "placeholder": "you@example.com" },
+        { "type": "input", "label": "Password", "placeholder": "••••••••" },
+        { "type": "button", "content": "Sign In", "variant": "primary" },
+        { "type": "link", "content": "Sign Up" },
+        { "type": "divider", "content": "or" },
+        { "type": "button", "content": "Continue as Guest", "variant": "secondary" }
+      ]
+    },
+    {
+      "id": "home-dashboard",
+      "name": "Home Dashboard",
+      "flowName": "main_flow",
+      "url": "/",
+      "screenshotPath": "screenshots/home-dashboard.png",
+      "screenType": "dashboard",
+      "description": "Main home screen showing daily progress ring, task count, and today's task list with empty state",
+      "components": [
+        { "type": "heading", "content": "Good morning, guest" },
+        { "type": "card", "content": "Daily Goals progress card with circular progress indicator" },
+        { "type": "section", "content": "Today's Tasks" },
+        { "type": "empty-state", "content": "No tasks for today. Tap + to add one!" },
+        { "type": "fab", "content": "Add new task", "icon": "plus" },
+        { "type": "bottom-nav", "items": ["Home", "Calendar", "Analytics", "Profile"] }
+      ]
+    },
+    {
+      "id": "task-drawer-create",
+      "name": "Task Creation Drawer",
+      "flowName": "main_flow",
+      "url": "/",
+      "screenshotPath": "screenshots/task-drawer-create.png",
+      "screenType": "modal",
+      "description": "Bottom sheet drawer for creating new tasks with category selection, due date, priority, notes, and subtasks",
+      "components": [
+        { "type": "drawer-header", "content": "New Task", "action": "Close" },
+        { "type": "input", "placeholder": "Task name..." },
+        { "type": "chip-group", "label": "Category", "options": ["Work", "Personal", "Team", "Self-improvement"] },
+        { "type": "date-picker", "label": "Due Date" },
+        { "type": "toggle-group", "label": "Priority", "options": ["Low", "Medium", "High"] },
+        { "type": "textarea", "placeholder": "Add notes..." },
+        { "type": "section", "content": "Subtasks" },
+        { "type": "input", "placeholder": "Add a subtask..." },
+        { "type": "button", "content": "Create Task", "variant": "primary", "disabled": true }
+      ]
+    },
+    {
+      "id": "calendar-week-view",
+      "name": "Calendar Week View",
+      "flowName": "main_flow",
+      "url": "/calendar",
+      "screenshotPath": "screenshots/calendar-week-view.png",
+      "screenType": "calendar",
+      "description": "Weekly calendar view with day selector showing tasks for the selected date",
+      "components": [
+        { "type": "navigation-header", "content": "January 2026", "actions": ["Previous week", "Next week"] },
+        { "type": "day-selector", "days": ["Mon 5", "Tue 6", "Wed 7", "Thu 8", "Fri 9", "Sat 10", "Sun 11"] },
+        { "type": "empty-state", "icon": "calendar", "title": "No tasks for Sunday", "description": "You don't have any tasks scheduled for January 11. Add a task to get started." },
+        { "type": "button", "content": "Add a task", "icon": "plus" },
+        { "type": "fab", "content": "Add new task", "icon": "plus" },
+        { "type": "bottom-nav", "items": ["Home", "Calendar", "Analytics", "Profile"], "active": "Calendar" }
+      ]
+    },
+    {
+      "id": "analytics-dashboard",
+      "name": "Analytics Dashboard",
+      "flowName": "main_flow",
+      "url": "/analytics",
+      "screenshotPath": "screenshots/analytics-dashboard.png",
+      "screenType": "analytics",
+      "description": "Analytics screen showing progress statistics, activity chart, and category breakdown",
+      "components": [
+        { "type": "heading", "content": "Your Progress" },
+        { "type": "tab-group", "options": ["Week", "Month", "Year"], "active": "Week" },
+        { "type": "stat-card", "content": "Tasks Completed with large number display" },
+        { "type": "stat-row", "items": ["0 day streak", "0% rate"] },
+        { "type": "section", "content": "Activity" },
+        { "type": "chart", "type": "bar-chart", "labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] },
+        { "type": "section", "content": "Category Breakdown" },
+        { "type": "progress-list", "items": ["Work 0%", "Personal 0%", "Team 0%", "Self-improvement 0%"] },
+        { "type": "fab", "content": "Add new task", "icon": "plus" },
+        { "type": "bottom-nav", "items": ["Home", "Calendar", "Analytics", "Profile"], "active": "Analytics" }
+      ]
+    },
+    {
+      "id": "profile-settings",
+      "name": "Profile & Settings",
+      "flowName": "main_flow",
+      "url": "/profile",
+      "screenshotPath": "screenshots/profile-settings.png",
+      "screenType": "profile",
+      "description": "User profile screen with avatar, stats, and settings options",
+      "components": [
+        { "type": "avatar", "content": "GU", "size": "large" },
+        { "type": "heading", "content": "guest" },
+        { "type": "link", "content": "Edit Profile" },
+        { "type": "stat-row", "items": ["0 Total Tasks", "0 Best Streak", "0% Rate"] },
+        { "type": "settings-group", "items": [
+          { "label": "Notifications", "type": "toggle", "value": true },
+          { "label": "Daily Goal", "type": "value", "value": "10 tasks" },
+          { "label": "Categories", "type": "link" },
+          { "label": "Sync & Backup", "type": "link" }
+        ]},
+        { "type": "button", "content": "Upgrade to Pro", "variant": "accent" },
+        { "type": "button", "content": "Sign Out", "variant": "destructive", "icon": "logout" },
+        { "type": "fab", "content": "Add new task", "icon": "plus" },
+        { "type": "bottom-nav", "items": ["Home", "Calendar", "Analytics", "Profile"], "active": "Profile" }
+      ]
+    }
+  ],
+  "sitemap": {
+    "totalScreens": 6,
+    "flows": [
+      {
+        "name": "auth_flow",
+        "screens": ["login"]
+      },
+      {
+        "name": "main_flow",
+        "screens": ["home-dashboard", "task-drawer-create", "calendar-week-view", "analytics-dashboard", "profile-settings"]
+      }
+    ]
+  },
+  "detectedPatterns": {
+    "colors": [
+      { "hex": "#0D1117", "usage": "background", "frequency": 100 },
+      { "hex": "#161B22", "usage": "card-background", "frequency": 85 },
+      { "hex": "#21262D", "usage": "input-background", "frequency": 60 },
+      { "hex": "#F0F6FC", "usage": "primary-text", "frequency": 90 },
+      { "hex": "#8B949E", "usage": "secondary-text", "frequency": 70 },
+      { "hex": "#0A84FF", "usage": "accent-primary", "frequency": 80 },
+      { "hex": "#F5A623", "usage": "accent-warning", "frequency": 20 },
+      { "hex": "#2DA44E", "usage": "accent-success", "frequency": 15 },
+      { "hex": "#F85149", "usage": "accent-error", "frequency": 10 }
+    ],
+    "fonts": ["system-ui", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+    "spacing": { "base": 4, "scale": [4, 8, 12, 16, 20, 24, 32, 48, 64] },
+    "borderRadius": { "small": 8, "medium": 12, "large": 16, "pill": 9999 }
+  },
+  "navigationPattern": {
+    "type": "bottom-tab",
+    "items": [
+      { "label": "Home", "icon": "home", "route": "/" },
+      { "label": "Calendar", "icon": "calendar", "route": "/calendar" },
+      { "label": "Analytics", "icon": "bar-chart", "route": "/analytics" },
+      { "label": "Profile", "icon": "user", "route": "/profile" }
+    ],
+    "fab": {
+      "icon": "plus",
+      "action": "open-task-drawer",
+      "position": "bottom-right"
+    }
+  }
+}

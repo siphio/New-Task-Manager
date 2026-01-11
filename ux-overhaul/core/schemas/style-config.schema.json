@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "style-config.schema.json",
+  "title": "UX Style Configuration",
+  "description": "Configuration schema for UX Overhaul Skill style system",
+  "type": "object",
+  "required": ["generatedAt", "viewport", "colorPalette", "anchors"],
+  "properties": {
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of style configuration generation"
+    },
+    "viewport": {
+      "type": "string",
+      "enum": ["mobile", "tablet", "desktop", "desktop-xl"],
+      "description": "Target viewport for this style configuration"
+    },
+    "styleDirection": {
+      "type": "string",
+      "description": "High-level style direction (e.g., 'modern minimal', 'bold vibrant')"
+    },
+    "colorPalette": {
+      "type": "object",
+      "required": ["primary", "background", "text"],
+      "description": "Color palette with semantic color tokens",
+      "properties": {
+        "primary": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "Primary brand color"
+        },
+        "secondary": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "Secondary brand color"
+        },
+        "accent": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "Accent color for highlights"
+        },
+        "background": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "Main background color"
+        },
+        "surface": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "Surface/card background color"
+        },
+        "text": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "Primary text color"
+        },
+        "textMuted": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "Muted/secondary text color"
+        },
+        "border": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "Border color"
+        },
+        "error": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "Error state color"
+        },
+        "success": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "Success state color"
+        },
+        "warning": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{6}$",
+          "description": "Warning state color"
+        }
+      }
+    },
+    "typography": {
+      "type": "object",
+      "description": "Typography settings",
+      "properties": {
+        "fontFamily": {
+          "type": "string",
+          "description": "Font family stack"
+        },
+        "headingWeight": {
+          "type": "string",
+          "description": "Font weight for headings"
+        },
+        "bodyWeight": {
+          "type": "string",
+          "description": "Font weight for body text"
+        }
+      }
+    },
+    "spacing": {
+      "type": "object",
+      "description": "Spacing system configuration",
+      "properties": {
+        "base": {
+          "type": "number",
+          "description": "Base spacing unit in pixels"
+        },
+        "scale": {
+          "type": "array",
+          "items": { "type": "number" },
+          "description": "Spacing scale values"
+        }
+      }
+    },
+    "borderRadius": {
+      "type": "string",
+      "enum": ["none", "subtle", "rounded", "pill"],
+      "description": "Border radius style"
+    },
+    "shadowStyle": {
+      "type": "string",
+      "enum": ["none", "subtle", "medium", "dramatic"],
+      "description": "Shadow intensity style"
+    },
+    "anchors": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/anchor" },
+      "minItems": 14,
+      "maxItems": 14,
+      "description": "14-slot anchor image system"
+    }
+  },
+  "$defs": {
+    "anchor": {
+      "type": "object",
+      "required": ["slot", "type", "imagePath", "validated"],
+      "description": "Single anchor image definition",
+      "properties": {
+        "slot": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 14,
+          "description": "Slot number (1-14)"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["hero", "screen", "component", "typography", "state", "iconography"],
+          "description": "Type of anchor"
+        },
+        "name": {
+          "type": "string",
+          "description": "Human-readable name for this anchor"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of what this anchor represents"
+        },
+        "imagePath": {
+          "type": "string",
+          "description": "Relative path to the anchor image file"
+        },
+        "validated": {
+          "type": "boolean",
+          "description": "Whether this anchor has been validated"
+        },
+        "validatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when anchor was validated"
+        },
+        "promptUsed": {
+          "type": "string",
+          "description": "The prompt used to generate this anchor"
+        }
+      }
+    }
+  }
+}

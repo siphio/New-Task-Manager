@@ -1,0 +1,338 @@
+{
+  "auditedAt": "2026-01-11T01:10:00.000Z",
+  "appName": "TaskFlow",
+  "viewport": "mobile",
+  "screens": [
+    {
+      "screenId": "login",
+      "screenName": "Login",
+      "screenType": "auth",
+      "issues": [
+        {
+          "id": "aesthetic-login-contrast",
+          "principle": "Aesthetic and Minimalist Design",
+          "principleId": "N8",
+          "category": "visual-design",
+          "severity": "medium",
+          "description": "Low contrast between secondary button (Continue as Guest) and background makes it less prominent",
+          "affectedElements": ["guest-button"],
+          "recommendation": "Increase contrast for secondary actions or use subtle border to improve visibility",
+          "promptInjection": "Increase visual distinction for secondary CTA buttons with subtle borders or higher contrast"
+        },
+        {
+          "id": "recognition-login-password",
+          "principle": "Recognition Rather Than Recall",
+          "principleId": "N6",
+          "category": "form-design",
+          "severity": "low",
+          "description": "Password field lacks show/hide toggle for password visibility",
+          "affectedElements": ["password-input"],
+          "recommendation": "Add password visibility toggle icon to help users verify input",
+          "promptInjection": "Add password visibility toggle icon inside input field"
+        },
+        {
+          "id": "fitts-login-cta",
+          "principle": "Fitts's Law",
+          "principleId": "LOU-FITTS",
+          "category": "interaction-design",
+          "severity": "low",
+          "description": "Sign In button could benefit from full-width treatment for easier tap target",
+          "affectedElements": ["sign-in-button"],
+          "recommendation": "Consider full-width primary button for main CTA",
+          "promptInjection": "Make primary CTA button full-width for larger touch target"
+        }
+      ],
+      "issueCount": 3
+    },
+    {
+      "screenId": "home-dashboard",
+      "screenName": "Home Dashboard",
+      "screenType": "dashboard",
+      "issues": [
+        {
+          "id": "visibility-home-progress",
+          "principle": "Visibility of System Status",
+          "principleId": "N1",
+          "category": "feedback",
+          "severity": "medium",
+          "description": "Progress ring at 0% shows no visual differentiation - empty ring blends with background",
+          "affectedElements": ["progress-ring"],
+          "recommendation": "Add subtle track/background to progress ring to show potential progress range",
+          "promptInjection": "Add visible track behind progress ring to show full 100% range"
+        },
+        {
+          "id": "aesthetic-home-hierarchy",
+          "principle": "Visual Hierarchy",
+          "principleId": "LOU-HIERARCHY",
+          "category": "visual-design",
+          "severity": "medium",
+          "description": "Empty state message lacks visual emphasis - could be more engaging to encourage action",
+          "affectedElements": ["empty-state"],
+          "recommendation": "Add illustration or icon to empty state to make it more inviting",
+          "promptInjection": "Add friendly illustration or icon to empty task state"
+        },
+        {
+          "id": "proximity-home-goals",
+          "principle": "Law of Proximity",
+          "principleId": "LOU-PROXIMITY",
+          "category": "visual-design",
+          "severity": "low",
+          "description": "Daily Goals card could have clearer separation from the task list section",
+          "affectedElements": ["goals-card", "task-section"],
+          "recommendation": "Increase spacing between summary card and task list section",
+          "promptInjection": "Add more vertical spacing between goals summary and task list"
+        }
+      ],
+      "issueCount": 3
+    },
+    {
+      "screenId": "task-drawer-create",
+      "screenName": "Task Creation Drawer",
+      "screenType": "modal",
+      "issues": [
+        {
+          "id": "visibility-drawer-validation",
+          "principle": "Visibility of System Status",
+          "principleId": "N1",
+          "category": "form-design",
+          "severity": "high",
+          "description": "No inline validation feedback - users don't know why Create Task button is disabled",
+          "affectedElements": ["create-button", "task-input"],
+          "recommendation": "Add inline validation hint showing required field (e.g., subtle helper text under task name)",
+          "promptInjection": "Add inline validation hint showing task name is required"
+        },
+        {
+          "id": "error-prevention-drawer",
+          "principle": "Error Prevention",
+          "principleId": "N5",
+          "category": "form-design",
+          "severity": "medium",
+          "description": "Date picker shows raw date format (2026-01-11) instead of human-friendly format",
+          "affectedElements": ["date-picker"],
+          "recommendation": "Display dates in friendlier format (e.g., 'Today', 'Tomorrow', 'Jan 11')",
+          "promptInjection": "Use human-friendly date labels like Today, Tomorrow, or Jan 11"
+        },
+        {
+          "id": "aesthetic-drawer-chips",
+          "principle": "Aesthetic and Minimalist Design",
+          "principleId": "N8",
+          "category": "visual-design",
+          "severity": "low",
+          "description": "Category chips wrap to two lines - 'Self-improvement' is on separate row creating visual imbalance",
+          "affectedElements": ["category-chips"],
+          "recommendation": "Consider abbreviating long labels or using icon+text for categories",
+          "promptInjection": "Use shorter category labels or icons to fit all options on one row"
+        },
+        {
+          "id": "consistency-drawer-priority",
+          "principle": "Consistency and Standards",
+          "principleId": "N4",
+          "category": "visual-design",
+          "severity": "medium",
+          "description": "Priority colors (gold for Medium, red for High) don't follow common conventions - High should be most urgent color",
+          "affectedElements": ["priority-toggles"],
+          "recommendation": "Use clearer priority color progression (e.g., green→yellow→red or blue→orange→red)",
+          "promptInjection": "Use intuitive priority color scale: green/blue for low, yellow for medium, red for high"
+        }
+      ],
+      "issueCount": 4
+    },
+    {
+      "screenId": "calendar-week-view",
+      "screenName": "Calendar Week View",
+      "screenType": "calendar",
+      "issues": [
+        {
+          "id": "visibility-calendar-today",
+          "principle": "Visibility of System Status",
+          "principleId": "N1",
+          "category": "feedback",
+          "severity": "low",
+          "description": "Today indicator (blue pill) is clear but month/year in header could show selected date context",
+          "affectedElements": ["header"],
+          "recommendation": "Consider showing selected date in header for clarity",
+          "promptInjection": "Add selected date to header for immediate context"
+        },
+        {
+          "id": "aesthetic-calendar-empty",
+          "principle": "Aesthetic and Minimalist Design",
+          "principleId": "N8",
+          "category": "visual-design",
+          "severity": "medium",
+          "description": "Empty state has generic calendar icon - could be more contextual to the selected day",
+          "affectedElements": ["empty-state"],
+          "recommendation": "Use more engaging empty state illustration that encourages planning",
+          "promptInjection": "Use friendly, encouraging illustration for empty calendar state"
+        },
+        {
+          "id": "flexibility-calendar-view",
+          "principle": "Flexibility and Efficiency",
+          "principleId": "N7",
+          "category": "functionality",
+          "severity": "low",
+          "description": "No quick way to jump to specific date or return to today",
+          "affectedElements": ["header"],
+          "recommendation": "Add 'Today' button for quick navigation back to current date",
+          "promptInjection": "Add Today button for quick navigation to current date"
+        }
+      ],
+      "issueCount": 3
+    },
+    {
+      "screenId": "analytics-dashboard",
+      "screenName": "Analytics Dashboard",
+      "screenType": "analytics",
+      "issues": [
+        {
+          "id": "visibility-analytics-empty",
+          "principle": "Visibility of System Status",
+          "principleId": "N1",
+          "category": "feedback",
+          "severity": "high",
+          "description": "Empty bar chart shows no data indication - unclear if loading, empty, or error state",
+          "affectedElements": ["activity-chart"],
+          "recommendation": "Show placeholder bars or explicit 'No activity yet' message in chart area",
+          "promptInjection": "Show ghost/placeholder bars or empty state message in activity chart"
+        },
+        {
+          "id": "recognition-analytics-context",
+          "principle": "Recognition Rather Than Recall",
+          "principleId": "N6",
+          "category": "information-display",
+          "severity": "medium",
+          "description": "Large '0' for tasks completed lacks context about the time period without reading small text",
+          "affectedElements": ["stat-display"],
+          "recommendation": "Add time period label closer to main number (e.g., 'This Week' subtitle)",
+          "promptInjection": "Add time period context label near main statistics"
+        },
+        {
+          "id": "aesthetic-analytics-density",
+          "principle": "Aesthetic and Minimalist Design",
+          "principleId": "N8",
+          "category": "visual-design",
+          "severity": "low",
+          "description": "Category breakdown section feels cramped - progress bars could use more breathing room",
+          "affectedElements": ["category-breakdown"],
+          "recommendation": "Increase vertical spacing in category breakdown list",
+          "promptInjection": "Add more vertical padding between category progress items"
+        },
+        {
+          "id": "miller-analytics-categories",
+          "principle": "Miller's Law",
+          "principleId": "LOU-MILLER",
+          "category": "information-design",
+          "severity": "low",
+          "description": "Four categories is good, but consider grouping stats visually for easier scanning",
+          "affectedElements": ["stats-section"],
+          "recommendation": "Group related metrics with clear visual containers",
+          "promptInjection": "Use card containers to group related analytics metrics"
+        }
+      ],
+      "issueCount": 4
+    },
+    {
+      "screenId": "profile-settings",
+      "screenName": "Profile & Settings",
+      "screenType": "profile",
+      "issues": [
+        {
+          "id": "consistency-profile-avatar",
+          "principle": "Consistency and Standards",
+          "principleId": "N4",
+          "category": "visual-design",
+          "severity": "low",
+          "description": "Avatar initials 'GU' (for guest) could be more user-friendly default",
+          "affectedElements": ["avatar"],
+          "recommendation": "Use generic user icon for guest accounts instead of truncated initials",
+          "promptInjection": "Use generic user icon for guest avatar instead of initials"
+        },
+        {
+          "id": "affordance-profile-settings",
+          "principle": "Affordance",
+          "principleId": "LOU-AFFORD",
+          "category": "interaction-design",
+          "severity": "medium",
+          "description": "Settings items lack clear tap affordance - chevrons help but items could be more obviously tappable",
+          "affectedElements": ["settings-list"],
+          "recommendation": "Add subtle background highlight on settings rows to indicate tappability",
+          "promptInjection": "Add subtle hover/pressed state backgrounds to settings rows"
+        },
+        {
+          "id": "aesthetic-profile-destructive",
+          "principle": "Aesthetic and Minimalist Design",
+          "principleId": "N8",
+          "category": "visual-design",
+          "severity": "medium",
+          "description": "Sign Out button uses red color which may be alarming - contrast with friendly Upgrade button",
+          "affectedElements": ["sign-out-button"],
+          "recommendation": "Use neutral styling for Sign Out; reserve red for destructive data actions",
+          "promptInjection": "Use neutral color for Sign Out button, reserve red for destructive actions"
+        },
+        {
+          "id": "hierarchy-profile-upsell",
+          "principle": "Visual Hierarchy",
+          "principleId": "LOU-HIERARCHY",
+          "category": "visual-design",
+          "severity": "low",
+          "description": "Upgrade to Pro button competes with settings items for attention",
+          "affectedElements": ["upgrade-button"],
+          "recommendation": "Consider moving upsell to a less prominent position or use subtler styling",
+          "promptInjection": "Position upgrade CTA to not compete with primary settings navigation"
+        }
+      ],
+      "issueCount": 4
+    }
+  ],
+  "summary": {
+    "totalIssues": 21,
+    "bySeverity": {
+      "critical": 0,
+      "high": 2,
+      "medium": 9,
+      "low": 10
+    },
+    "byPrinciple": {
+      "Visibility of System Status": 4,
+      "Aesthetic and Minimalist Design": 6,
+      "Consistency and Standards": 2,
+      "Recognition Rather Than Recall": 2,
+      "Error Prevention": 1,
+      "Flexibility and Efficiency": 1,
+      "Visual Hierarchy": 2,
+      "Fitts's Law": 1,
+      "Law of Proximity": 1,
+      "Miller's Law": 1,
+      "Affordance": 1
+    },
+    "byCategory": {
+      "visual-design": 11,
+      "form-design": 3,
+      "feedback": 3,
+      "interaction-design": 2,
+      "information-display": 1,
+      "functionality": 1
+    },
+    "topIssues": [
+      {
+        "id": "visibility-drawer-validation",
+        "principle": "Visibility of System Status",
+        "principleId": "N1",
+        "category": "form-design",
+        "severity": "high",
+        "description": "No inline validation feedback - users don't know why Create Task button is disabled",
+        "recommendation": "Add inline validation hint showing required field",
+        "promptInjection": "Add inline validation hint showing task name is required"
+      },
+      {
+        "id": "visibility-analytics-empty",
+        "principle": "Visibility of System Status",
+        "principleId": "N1",
+        "category": "feedback",
+        "severity": "high",
+        "description": "Empty bar chart shows no data indication - unclear if loading, empty, or error state",
+        "recommendation": "Show placeholder bars or explicit 'No activity yet' message in chart area",
+        "promptInjection": "Show ghost/placeholder bars or empty state message in activity chart"
+      }
+    ]
+  }
+}

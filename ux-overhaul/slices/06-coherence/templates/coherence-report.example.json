@@ -1,0 +1,80 @@
+{
+  "validatedAt": "2024-01-15T10:30:00.000Z",
+  "appName": "SpendingInsights",
+  "viewport": "mobile",
+  "passNumber": 2,
+  "maxPasses": 2,
+  "screens": [
+    {
+      "screenId": "screen-dashboard",
+      "screenName": "Dashboard",
+      "screenPath": "generated/screens/screen-dashboard-propagated.png",
+      "coherenceScore": 95,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "screenId": "screen-transactions",
+      "screenName": "Transactions List",
+      "screenPath": "generated/screens/screen-transactions-propagated.png",
+      "coherenceScore": 88,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "screenId": "screen-add-expense",
+      "screenName": "Add Expense",
+      "screenPath": "generated/screens/screen-add-expense-propagated.png",
+      "coherenceScore": 92,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "screenId": "screen-subscriptions",
+      "screenName": "Subscriptions",
+      "screenPath": "generated/screens/screen-subscriptions-propagated.png",
+      "coherenceScore": 85,
+      "passed": true,
+      "issues": []
+    },
+    {
+      "screenId": "screen-settings",
+      "screenName": "Settings",
+      "screenPath": "generated/screens/screen-settings-propagated.png",
+      "coherenceScore": 78,
+      "passed": true,
+      "issues": ["Minor spacing variance"]
+    }
+  ],
+  "outliers": [
+    {
+      "screenId": "screen-settings",
+      "screenName": "Settings",
+      "screenPath": "generated/screens/screen-settings-propagated.png",
+      "outlierScore": 22,
+      "reasons": ["spacing_variance"],
+      "recommendations": ["Maintain consistent spacing from references"],
+      "shouldRegenerate": false
+    }
+  ],
+  "regenerations": [
+    {
+      "screenId": "screen-subscriptions",
+      "passNumber": 1,
+      "reason": "color_drift",
+      "success": true,
+      "attempts": 1,
+      "cost": 0.15
+    }
+  ],
+  "summary": {
+    "totalScreens": 5,
+    "coherentCount": 5,
+    "outlierCount": 1,
+    "regeneratedCount": 1,
+    "overallCoherenceScore": 88,
+    "passNumber": 2,
+    "totalPasses": 2,
+    "totalRegenerationCost": 0.15
+  }
+}

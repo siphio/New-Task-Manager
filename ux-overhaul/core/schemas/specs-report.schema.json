@@ -1,0 +1,318 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "specs-report.schema.json",
+  "title": "UX Specs Report",
+  "description": "Comprehensive developer handoff specifications generated from UX Overhaul pipeline",
+  "type": "object",
+  "required": ["generatedAt", "appName", "viewport", "designTokens", "screens", "summary"],
+  "properties": {
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO timestamp when specs were generated"
+    },
+    "appName": {
+      "type": "string",
+      "description": "Name of the application"
+    },
+    "viewport": {
+      "type": "string",
+      "enum": ["mobile", "tablet", "desktop", "desktop-xl"],
+      "description": "Target viewport for the specs"
+    },
+    "designTokens": {
+      "$ref": "#/$defs/designTokens"
+    },
+    "designSystem": {
+      "$ref": "#/$defs/designSystemDoc"
+    },
+    "screens": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/screenSpec"
+      },
+      "description": "Per-screen implementation specifications"
+    },
+    "componentMap": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/componentMapping"
+      },
+      "description": "Screen type to shadcn/ui component mappings"
+    },
+    "implementationOrder": {
+      "$ref": "#/$defs/implementationOrder"
+    },
+    "summary": {
+      "$ref": "#/$defs/specsSummary"
+    }
+  },
+  "$defs": {
+    "designTokens": {
+      "type": "object",
+      "required": ["colors", "typography", "spacing", "borderRadius", "shadows"],
+      "properties": {
+        "colors": {
+          "type": "object",
+          "required": ["primary", "background", "text"],
+          "properties": {
+            "primary": { "type": "string" },
+            "secondary": { "type": "string" },
+            "accent": { "type": "string" },
+            "background": { "type": "string" },
+            "surface": { "type": "string" },
+            "text": { "type": "string" },
+            "textMuted": { "type": "string" },
+            "border": { "type": "string" },
+            "error": { "type": "string" },
+            "success": { "type": "string" },
+            "warning": { "type": "string" }
+          }
+        },
+        "typography": {
+          "type": "object",
+          "required": ["fontFamily"],
+          "properties": {
+            "fontFamily": { "type": "string" },
+            "fontFamilyMono": { "type": "string" },
+            "fontSize": {
+              "type": "object",
+              "additionalProperties": { "type": "string" }
+            },
+            "fontWeight": {
+              "type": "object",
+              "additionalProperties": { "type": "number" }
+            },
+            "lineHeight": {
+              "type": "object",
+              "additionalProperties": { "type": "string" }
+            },
+            "letterSpacing": {
+              "type": "object",
+              "additionalProperties": { "type": "string" }
+            }
+          }
+        },
+        "spacing": {
+          "type": "object",
+          "required": ["base", "scale"],
+          "properties": {
+            "base": { "type": "string" },
+            "scale": {
+              "type": "object",
+              "additionalProperties": { "type": "string" }
+            }
+          }
+        },
+        "borderRadius": {
+          "type": "object",
+          "properties": {
+            "none": { "type": "string" },
+            "sm": { "type": "string" },
+            "md": { "type": "string" },
+            "lg": { "type": "string" },
+            "full": { "type": "string" }
+          }
+        },
+        "shadows": {
+          "type": "object",
+          "properties": {
+            "none": { "type": "string" },
+            "sm": { "type": "string" },
+            "md": { "type": "string" },
+            "lg": { "type": "string" },
+            "xl": { "type": "string" }
+          }
+        }
+      }
+    },
+    "designSystemDoc": {
+      "type": "object",
+      "required": ["title", "generatedAt", "sections"],
+      "properties": {
+        "title": { "type": "string" },
+        "generatedAt": { "type": "string" },
+        "sections": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/docSection"
+          }
+        },
+        "fullMarkdown": { "type": "string" }
+      }
+    },
+    "docSection": {
+      "type": "object",
+      "required": ["id", "title", "content"],
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "content": { "type": "string" }
+      }
+    },
+    "screenSpec": {
+      "type": "object",
+      "required": ["screenId", "screenName", "screenType", "layout", "components"],
+      "properties": {
+        "screenId": { "type": "string" },
+        "screenName": { "type": "string" },
+        "screenType": { "type": "string" },
+        "imagePath": { "type": "string" },
+        "layout": {
+          "$ref": "#/$defs/layoutSpec"
+        },
+        "components": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/componentSpec"
+          }
+        },
+        "states": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/stateSpec"
+          }
+        },
+        "implementationNotes": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "uxRequirements": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "estimatedComplexity": {
+          "type": "string",
+          "enum": ["low", "medium", "high"]
+        }
+      }
+    },
+    "layoutSpec": {
+      "type": "object",
+      "required": ["structure", "mainAreas"],
+      "properties": {
+        "structure": { "type": "string" },
+        "mainAreas": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "navigation": { "type": "string" },
+        "responsiveNotes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "componentSpec": {
+      "type": "object",
+      "required": ["id", "name", "shadcnComponent"],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "shadcnComponent": { "type": "string" },
+        "props": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "tokens": {
+          "type": "object",
+          "additionalProperties": { "type": "string" }
+        },
+        "notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "stateSpec": {
+      "type": "object",
+      "required": ["stateType", "description"],
+      "properties": {
+        "stateType": { "type": "string" },
+        "imagePath": { "type": "string" },
+        "description": { "type": "string" },
+        "triggerConditions": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "components": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "componentMapping": {
+      "type": "object",
+      "required": ["screenType", "recommendedComponents"],
+      "properties": {
+        "screenType": { "type": "string" },
+        "recommendedComponents": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "layoutPattern": { "type": "string" },
+        "notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "implementationOrder": {
+      "type": "object",
+      "required": ["phases", "totalScreens"],
+      "properties": {
+        "phases": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/implementationPhase"
+          }
+        },
+        "totalScreens": { "type": "integer" },
+        "criticalPath": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "recommendedParallelization": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    },
+    "implementationPhase": {
+      "type": "object",
+      "required": ["phase", "name", "screens"],
+      "properties": {
+        "phase": { "type": "integer" },
+        "name": { "type": "string" },
+        "screens": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "description": { "type": "string" },
+        "dependencies": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "estimatedEffort": {
+          "type": "string",
+          "enum": ["low", "medium", "high"]
+        }
+      }
+    },
+    "specsSummary": {
+      "type": "object",
+      "required": ["totalScreens", "totalComponents", "tokensGenerated", "documentationGenerated"],
+      "properties": {
+        "totalScreens": { "type": "integer" },
+        "totalComponents": { "type": "integer" },
+        "tokensGenerated": { "type": "boolean" },
+        "documentationGenerated": { "type": "boolean" },
+        "implementationPhasesCount": { "type": "integer" },
+        "completenessScore": { "type": "number" }
+      }
+    }
+  }
+}

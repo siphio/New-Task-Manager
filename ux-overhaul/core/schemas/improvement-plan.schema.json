@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "improvement-plan.schema.json",
+  "title": "UX Improvement Plan",
+  "description": "Schema for UX Overhaul Skill improvement plan output",
+  "type": "object",
+  "required": ["generatedAt", "appName", "prioritizedImprovements", "screenImprovements"],
+  "properties": {
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of when the plan was generated"
+    },
+    "appName": {
+      "type": "string",
+      "description": "Name of the application"
+    },
+    "globalImprovements": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/improvement" },
+      "description": "Improvements that apply to 2+ screens (systemic issues)"
+    },
+    "prioritizedImprovements": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/improvement" },
+      "maxItems": 20,
+      "description": "Top 20 prioritized improvements across all screens"
+    },
+    "screenImprovements": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/screenImprovement" },
+      "description": "Per-screen improvement recommendations"
+    }
+  },
+  "$defs": {
+    "improvement": {
+      "type": "object",
+      "required": ["id", "principle", "principleId", "category", "severity", "recommendation", "promptText"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique improvement ID"
+        },
+        "principle": {
+          "type": "string",
+          "description": "Full name of the UX principle"
+        },
+        "principleId": {
+          "type": "string",
+          "description": "Short principle identifier"
+        },
+        "category": {
+          "type": "string",
+          "description": "Category of the UX principle"
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["critical", "high", "medium", "low"],
+          "description": "Severity level"
+        },
+        "recommendation": {
+          "type": "string",
+          "description": "Human-readable recommendation"
+        },
+        "promptText": {
+          "type": "string",
+          "description": "Prompt-ready text for fal.ai generation"
+        },
+        "affectedScreens": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "List of screen IDs affected by this issue"
+        }
+      }
+    },
+    "screenImprovement": {
+      "type": "object",
+      "required": ["screenId", "screenName", "improvements", "promptInjections"],
+      "properties": {
+        "screenId": {
+          "type": "string",
+          "description": "Unique screen identifier"
+        },
+        "screenName": {
+          "type": "string",
+          "description": "Human-readable screen name"
+        },
+        "screenType": {
+          "type": "string",
+          "description": "Classified screen type"
+        },
+        "improvements": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/improvement" },
+          "description": "Improvements specific to this screen"
+        },
+        "promptInjections": {
+          "type": "array",
+          "items": { "type": "string" },
+          "maxItems": 5,
+          "description": "Top 5 prompt injections for Phase 4 generation"
+        }
+      }
+    }
+  }
+}

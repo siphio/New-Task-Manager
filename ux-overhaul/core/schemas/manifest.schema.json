@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "manifest.schema.json",
+  "title": "UX Overhaul Manifest",
+  "description": "Progress tracking for UX Overhaul skill execution",
+  "type": "object",
+  "required": ["projectId", "createdAt", "viewport", "phases"],
+  "properties": {
+    "projectId": {
+      "type": "string",
+      "description": "Unique project identifier (kebab-case)"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "viewport": {
+      "type": "string",
+      "enum": ["mobile", "tablet", "desktop", "desktop-xl"]
+    },
+    "appUrl": {
+      "type": "string",
+      "format": "uri"
+    },
+    "phases": {
+      "type": "object",
+      "properties": {
+        "capture": { "$ref": "#/$defs/phaseStatus" },
+        "audit": { "$ref": "#/$defs/phaseStatus" },
+        "anchoring": { "$ref": "#/$defs/phaseStatus" },
+        "propagation": { "$ref": "#/$defs/phaseStatus" },
+        "states": { "$ref": "#/$defs/phaseStatus" },
+        "coherence": { "$ref": "#/$defs/phaseStatus" },
+        "specs": { "$ref": "#/$defs/phaseStatus" }
+      }
+    },
+    "totalScreens": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "styleConfig": {
+      "type": "object",
+      "description": "Extracted style configuration after anchoring"
+    }
+  },
+  "$defs": {
+    "phaseStatus": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["pending", "in_progress", "complete", "skipped", "failed"]
+        },
+        "startedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "completedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "currentBatch": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "screensCompleted": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "error": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

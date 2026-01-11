@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "audit-report.schema.json",
+  "title": "UX Audit Report",
+  "description": "Schema for UX Overhaul Skill audit report output",
+  "type": "object",
+  "required": ["auditedAt", "appName", "viewport", "screens", "summary"],
+  "properties": {
+    "auditedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of when the audit was performed"
+    },
+    "appName": {
+      "type": "string",
+      "description": "Name of the application being audited"
+    },
+    "viewport": {
+      "type": "string",
+      "enum": ["mobile", "tablet", "desktop", "desktop-xl"],
+      "description": "Viewport used during capture and audit"
+    },
+    "screens": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/screenAudit" },
+      "description": "Array of per-screen audit results"
+    },
+    "summary": {
+      "$ref": "#/$defs/auditSummary",
+      "description": "Aggregated audit summary across all screens"
+    }
+  },
+  "$defs": {
+    "screenAudit": {
+      "type": "object",
+      "required": ["screenId", "screenName", "issues", "issueCount"],
+      "properties": {
+        "screenId": {
+          "type": "string",
+          "description": "Unique identifier for the screen"
+        },
+        "screenName": {
+          "type": "string",
+          "description": "Human-readable screen name"
+        },
+        "screenType": {
+          "type": "string",
+          "description": "Classified screen type (dashboard, form, list, etc.)"
+        },
+        "issues": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/issue" },
+          "description": "Array of issues found on this screen"
+        },
+        "issueCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total number of issues on this screen"
+        }
+      }
+    },
+    "issue": {
+      "type": "object",
+      "required": ["id", "principle", "principleId", "category", "severity", "description", "recommendation", "promptInjection"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Z0-9]+-[a-z0-9-]+-[a-z0-9-]+$",
+          "description": "Unique issue ID in format: PRINCIPLE-SCREEN-CHECK"
+        },
+        "principle": {
+          "type": "string",
+          "description": "Full name of the UX principle violated"
+        },
+        "principleId": {
+          "type": "string",
+          "description": "Short principle identifier (NH1, MILLER, A11Y-IMG-ALT, etc.)"
+        },
+        "category": {
+          "type": "string",
+          "enum": ["feedback", "control", "consistency", "prevention", "memory", "efficiency", "design", "errors", "help", "cognitive", "motor", "perceivable", "operable", "understandable", "robust"],
+          "description": "Category of the UX principle"
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["critical", "high", "medium", "low"],
+          "description": "Severity level of the issue"
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed description of the issue"
+        },
+        "affectedElements": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "List of affected DOM elements or selectors"
+        },
+        "recommendation": {
+          "type": "string",
+          "description": "Human-readable recommendation for fixing the issue"
+        },
+        "promptInjection": {
+          "type": "string",
+          "description": "Prompt-ready text for fal.ai generation"
+        }
+      }
+    },
+    "auditSummary": {
+      "type": "object",
+      "required": ["totalIssues", "bySeverity", "byPrinciple", "byCategory", "topIssues"],
+      "properties": {
+        "totalIssues": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total number of issues across all screens"
+        },
+        "bySeverity": {
+          "type": "object",
+          "properties": {
+            "critical": { "type": "integer", "minimum": 0 },
+            "high": { "type": "integer", "minimum": 0 },
+            "medium": { "type": "integer", "minimum": 0 },
+            "low": { "type": "integer", "minimum": 0 }
+          },
+          "required": ["critical", "high", "medium", "low"],
+          "description": "Issue count grouped by severity"
+        },
+        "byPrinciple": {
+          "type": "object",
+          "additionalProperties": { "type": "integer", "minimum": 0 },
+          "description": "Issue count grouped by principle name"
+        },
+        "byCategory": {
+          "type": "object",
+          "additionalProperties": { "type": "integer", "minimum": 0 },
+          "description": "Issue count grouped by category"
+        },
+        "topIssues": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/issue" },
+          "maxItems": 10,
+          "description": "Top prioritized issues across all screens"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "generatedAt": "2026-01-11T01:45:00.000Z",
+  "viewport": "mobile",
+  "styleDirection": "Modern, elegant task management app with cool purple-blue accent colors. Rounded corners (20px radius), soft layered shadows, Plus Jakarta Sans typography. Dark mode with deep charcoal background. Enhanced glow effects on interactive elements.",
+  "colorPalette": {
+    "primary": "#7c5cff",
+    "primaryForeground": "#ffffff",
+    "secondary": "#3a3f4b",
+    "secondaryForeground": "#e8ecf4",
+    "background": "#1a1d23",
+    "foreground": "#e8ecf4",
+    "card": "#222830",
+    "cardForeground": "#e8ecf4",
+    "muted": "#3a3f4b",
+    "mutedForeground": "#9ca3af",
+    "accent": "#7c5cff",
+    "accentForeground": "#ffffff",
+    "destructive": "#f87171",
+    "destructiveForeground": "#ffffff",
+    "border": "#3a3f4b",
+    "input": "#2a2f38",
+    "ring": "#7c5cff",
+    "success": "#4ade80",
+    "warning": "#fbbf24",
+    "info": "#60a5fa"
+  },
+  "typography": {
+    "fontFamily": "Plus Jakarta Sans, system-ui, -apple-system, sans-serif",
+    "fontFamilyMono": "Roboto Mono, monospace",
+    "headingWeight": "700",
+    "bodyWeight": "400",
+    "scale": {
+      "xs": "0.75rem",
+      "sm": "0.875rem",
+      "base": "1rem",
+      "lg": "1.125rem",
+      "xl": "1.25rem",
+      "2xl": "1.5rem",
+      "3xl": "1.875rem",
+      "4xl": "2.25rem"
+    }
+  },
+  "spacing": {
+    "base": 4,
+    "scale": [0, 4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80, 96]
+  },
+  "borderRadius": "rounded",
+  "borderRadiusValues": {
+    "none": "0",
+    "sm": "0.5rem",
+    "md": "0.75rem",
+    "lg": "1rem",
+    "xl": "1.25rem",
+    "2xl": "1.5rem",
+    "full": "9999px"
+  },
+  "shadowStyle": "subtle",
+  "shadows": {
+    "sm": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+    "md": "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+    "lg": "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+    "glow": "0 0 20px rgba(124, 92, 255, 0.3)"
+  },
+  "anchors": [
+    {
+      "slot": 1,
+      "type": "hero",
+      "name": "Home Dashboard",
+      "description": "Entry screen establishing visual direction - daily goals, task list",
+      "imagePath": "generated/anchors/anchor-01-hero.png",
+      "validated": true,
+      "validatedAt": "2026-01-11T01:30:00.000Z"
+    },
+    {
+      "slot": 2,
+      "type": "screen",
+      "name": "Login",
+      "description": "Authentication screen with email/password and guest mode",
+      "imagePath": "generated/anchors/anchor-02-login.png",
+      "validated": true,
+      "validatedAt": "2026-01-11T01:32:00.000Z"
+    },
+    {
+      "slot": 3,
+      "type": "screen",
+      "name": "Task Drawer",
+      "description": "Task creation modal with form fields",
+      "imagePath": "generated/anchors/anchor-03-task-drawer.png",
+      "validated": true,
+      "validatedAt": "2026-01-11T01:34:00.000Z"
+    },
+    {
+      "slot": 4,
+      "type": "screen",
+      "name": "Calendar",
+      "description": "Week view calendar with day selector",
+      "imagePath": "generated/anchors/anchor-04-calendar.png",
+      "validated": true,
+      "validatedAt": "2026-01-11T01:36:00.000Z"
+    },
+    {
+      "slot": 5,
+      "type": "screen",
+      "name": "Analytics",
+      "description": "Progress dashboard with charts and stats",
+      "imagePath": "generated/anchors/anchor-05-analytics.png",
+      "validated": true,
+      "validatedAt": "2026-01-11T01:40:00.000Z"
+    },
+    {
+      "slot": 6,
+      "type": "screen",
+      "name": "Profile",
+      "description": "User profile and settings screen",
+      "imagePath": "generated/anchors/anchor-06-profile.png",
+      "validated": true,
+      "validatedAt": "2026-01-11T01:45:00.000Z"
+    }
+  ],
+  "componentStyles": {
+    "button": {
+      "primary": {
+        "background": "#7c5cff",
+        "foreground": "#ffffff",
+        "borderRadius": "1rem",
+        "shadow": "0 0 20px rgba(124, 92, 255, 0.3)"
+      },
+      "secondary": {
+        "background": "transparent",
+        "foreground": "#e8ecf4",
+        "border": "1px solid #3a3f4b",
+        "borderRadius": "1rem"
+      }
+    },
+    "card": {
+      "background": "#222830",
+      "borderRadius": "1.25rem",
+      "padding": "1rem"
+    },
+    "input": {
+      "background": "#2a2f38",
+      "border": "1px solid #3a3f4b",
+      "borderRadius": "0.75rem",
+      "focusBorder": "#7c5cff"
+    },
+    "fab": {
+      "background": "#7c5cff",
+      "size": "56px",
+      "borderRadius": "50%",
+      "shadow": "0 0 20px rgba(124, 92, 255, 0.4)"
+    },
+    "bottomNav": {
+      "background": "#1a1d23",
+      "activeColor": "#7c5cff",
+      "inactiveColor": "#9ca3af"
+    },
+    "chip": {
+      "activeBackground": "#7c5cff",
+      "activeForeground": "#ffffff",
+      "inactiveBackground": "transparent",
+      "inactiveBorder": "1px solid #3a3f4b",
+      "borderRadius": "9999px"
+    }
+  },
+  "designNotes": [
+    "FAB should be hidden on Profile screen",
+    "Use glow effect on primary CTAs for visual emphasis",
+    "Category colors: Work (blue), Personal (green), Team (pink), Self-improvement (orange)",
+    "Priority colors: Low (muted), Medium (purple), High (coral/red)",
+    "Empty states should use soft illustrations and encouraging copy"
+  ]
+}

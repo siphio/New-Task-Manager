@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "flow-definition.schema.json",
+  "title": "Flow Definition",
+  "description": "Defines user flows for application capture",
+  "type": "object",
+  "required": ["appName", "baseUrl", "flows"],
+  "properties": {
+    "appName": {
+      "type": "string",
+      "description": "Human-readable application name"
+    },
+    "baseUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "Base URL of the application"
+    },
+    "auth": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["none", "form", "oauth", "basic", "manual"]
+        },
+        "loginUrl": { "type": "string" },
+        "usernameSelector": { "type": "string" },
+        "passwordSelector": { "type": "string" },
+        "submitSelector": { "type": "string" },
+        "credentials": {
+          "type": "object",
+          "properties": {
+            "username": { "type": "string" },
+            "password": { "type": "string" }
+          }
+        }
+      }
+    },
+    "flows": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/flow"
+      }
+    }
+  },
+  "$defs": {
+    "flow": {
+      "type": "object",
+      "required": ["name", "steps"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Flow identifier (kebab-case)"
+        },
+        "description": {
+          "type": "string"
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/step"
+          }
+        }
+      }
+    },
+    "step": {
+      "type": "object",
+      "required": ["action"],
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": ["navigate", "click", "type", "screenshot", "wait", "scroll", "select", "hover"]
+        },
+        "url": {
+          "type": "string",
+          "description": "For navigate action"
+        },
+        "selector": {
+          "type": "string",
+          "description": "CSS selector for element actions"
+        },
+        "text": {
+          "type": "string",
+          "description": "Text to type or element text to find"
+        },
+        "name": {
+          "type": "string",
+          "description": "Screenshot name identifier"
+        },
+        "description": {
+          "type": "string",
+          "description": "What this screen represents"
+        },
+        "waitMs": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Milliseconds to wait"
+        },
+        "captureStates": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["default", "loading", "empty", "error", "filled", "hover", "focus"]
+          },
+          "description": "States to capture for this screen"
+        }
+      }
+    }
+  }
+}

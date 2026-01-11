@@ -1,0 +1,158 @@
+{
+  "$schema": "../../core/schemas/audit-report.schema.json",
+  "auditedAt": "2024-01-15T10:30:00.000Z",
+  "appName": "TaskFlow",
+  "viewport": "mobile",
+  "screens": [
+    {
+      "screenId": "login",
+      "screenName": "Login",
+      "screenType": "form",
+      "screenshotPath": "screenshots/login.png",
+      "issues": [
+        {
+          "id": "A11Y-login-img-alt",
+          "principle": "WCAG 1.1.1: Non-text Content",
+          "principleId": "A11Y-IMG-ALT",
+          "category": "perceivable",
+          "severity": "critical",
+          "description": "1 image(s) missing alt text",
+          "affectedElements": ["img.logo"],
+          "recommendation": "Add descriptive alt text to all meaningful images, or empty alt for decorative images",
+          "promptInjection": "Add descriptive alt text to all meaningful images, or empty alt for decorative images"
+        },
+        {
+          "id": "NH5-login-form-validation",
+          "principle": "Nielsen's Heuristic #5: Error Prevention",
+          "principleId": "NH5",
+          "category": "prevention",
+          "severity": "high",
+          "description": "Forms lack input validation",
+          "recommendation": "Add input validation to prevent users from submitting invalid data",
+          "promptInjection": "Add input validation to prevent users from submitting invalid data"
+        }
+      ],
+      "summary": {
+        "critical": 1,
+        "high": 1,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "screenId": "dashboard",
+      "screenName": "Dashboard",
+      "screenType": "dashboard",
+      "screenshotPath": "screenshots/dashboard.png",
+      "issues": [
+        {
+          "id": "HICK-dashboard-nav-items",
+          "principle": "Hick's Law",
+          "principleId": "HICK",
+          "category": "cognitive",
+          "severity": "medium",
+          "description": "Navigation has 9 items (recommended: 7 or fewer)",
+          "recommendation": "Consider grouping navigation items into categories or using a mega-menu",
+          "promptInjection": "Consider grouping navigation items into categories or using a mega-menu"
+        },
+        {
+          "id": "A11Y-dashboard-main-landmark",
+          "principle": "WCAG 4.1.2: Name, Role, Value",
+          "principleId": "A11Y-LANDMARKS",
+          "category": "robust",
+          "severity": "medium",
+          "description": "Page lacks main landmark region",
+          "recommendation": "Add main landmark (main element or role=\"main\") to identify primary content",
+          "promptInjection": "Add main landmark (main element or role=\"main\") to identify primary content"
+        },
+        {
+          "id": "NH10-dashboard-help-available",
+          "principle": "Nielsen's Heuristic #10: Help and Documentation",
+          "principleId": "NH10",
+          "category": "help",
+          "severity": "low",
+          "description": "Complex interface lacks visible help option",
+          "recommendation": "Add help link, tooltip, or documentation access for complex features",
+          "promptInjection": "Add help link, tooltip, or documentation access for complex features"
+        }
+      ],
+      "summary": {
+        "critical": 0,
+        "high": 0,
+        "medium": 2,
+        "low": 1
+      }
+    },
+    {
+      "screenId": "task-create",
+      "screenName": "Create Task",
+      "screenType": "form",
+      "screenshotPath": "screenshots/task-create.png",
+      "issues": [
+        {
+          "id": "MILLER-task-create-form-fields",
+          "principle": "Miller's Law",
+          "principleId": "MILLER",
+          "category": "cognitive",
+          "severity": "high",
+          "description": "Form has 12 fields (recommended: 9 or fewer)",
+          "recommendation": "Chunk form fields into logical sections of 7 or fewer to reduce cognitive load",
+          "promptInjection": "Chunk form fields into logical sections of 7 or fewer to reduce cognitive load"
+        },
+        {
+          "id": "NH3-task-create-cancel-button",
+          "principle": "Nielsen's Heuristic #3: User Control and Freedom",
+          "principleId": "NH3",
+          "category": "control",
+          "severity": "high",
+          "description": "Form lacks cancel or back option",
+          "recommendation": "Add a cancel or back button to allow users to exit the form without completing it",
+          "promptInjection": "Add a cancel or back button to allow users to exit the form without completing it"
+        },
+        {
+          "id": "A11Y-task-create-form-labels",
+          "principle": "WCAG 3.3.2: Labels or Instructions",
+          "principleId": "A11Y-FORM-LABELS",
+          "category": "understandable",
+          "severity": "critical",
+          "description": "Form inputs missing associated labels",
+          "affectedElements": ["form inputs"],
+          "recommendation": "Add visible labels to all form inputs using label elements or aria-label",
+          "promptInjection": "Add visible labels to all form inputs using label elements or aria-label"
+        }
+      ],
+      "summary": {
+        "critical": 1,
+        "high": 2,
+        "medium": 0,
+        "low": 0
+      }
+    }
+  ],
+  "summary": {
+    "totalScreens": 3,
+    "totalIssues": 8,
+    "bySeverity": {
+      "critical": 2,
+      "high": 3,
+      "medium": 2,
+      "low": 1
+    },
+    "byCategory": {
+      "perceivable": 1,
+      "prevention": 1,
+      "cognitive": 2,
+      "robust": 1,
+      "control": 1,
+      "understandable": 1,
+      "help": 1
+    },
+    "topIssues": [
+      "A11Y-login-img-alt",
+      "A11Y-task-create-form-labels",
+      "NH5-login-form-validation",
+      "MILLER-task-create-form-fields",
+      "NH3-task-create-cancel-button"
+    ]
+  }
+}

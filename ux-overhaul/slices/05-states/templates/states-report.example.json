@@ -1,0 +1,74 @@
+{
+  "generatedAt": "2024-01-15T11:30:00.000Z",
+  "appName": "Task Manager Pro",
+  "viewport": "mobile",
+  "batchSize": 5,
+  "screens": [
+    {
+      "screenId": "main-dashboard",
+      "screenName": "Dashboard",
+      "states": [
+        {
+          "screenId": "main-dashboard",
+          "screenName": "Dashboard",
+          "stateType": "loading",
+          "originalPropagatedPath": "generated/screens/main-dashboard-propagated.png",
+          "statePath": "generated/states/main-dashboard-loading.png",
+          "success": true,
+          "attempts": 1,
+          "cost": 0.15,
+          "strengthUsed": 0.50
+        },
+        {
+          "screenId": "main-dashboard",
+          "screenName": "Dashboard",
+          "stateType": "empty",
+          "originalPropagatedPath": "generated/screens/main-dashboard-propagated.png",
+          "statePath": "generated/states/main-dashboard-empty.png",
+          "success": true,
+          "attempts": 1,
+          "cost": 0.15,
+          "strengthUsed": 0.52
+        },
+        {
+          "screenId": "main-dashboard",
+          "screenName": "Dashboard",
+          "stateType": "error",
+          "originalPropagatedPath": "generated/screens/main-dashboard-propagated.png",
+          "statePath": "generated/states/main-dashboard-error.png",
+          "success": true,
+          "attempts": 2,
+          "cost": 0.30,
+          "strengthUsed": 0.52
+        },
+        {
+          "screenId": "main-dashboard",
+          "screenName": "Dashboard",
+          "stateType": "success",
+          "originalPropagatedPath": "generated/screens/main-dashboard-propagated.png",
+          "statePath": "generated/states/main-dashboard-success.png",
+          "success": true,
+          "attempts": 1,
+          "cost": 0.15,
+          "strengthUsed": 0.55
+        }
+      ],
+      "totalCost": 0.75,
+      "successCount": 4
+    }
+  ],
+  "summary": {
+    "totalScreens": 1,
+    "totalStates": 4,
+    "successCount": 4,
+    "failureCount": 0,
+    "totalCost": 0.75,
+    "averageAttempts": 1.25,
+    "byStateType": {
+      "loading": { "count": 1, "successRate": 100 },
+      "empty": { "count": 1, "successRate": 100 },
+      "error": { "count": 1, "successRate": 100 },
+      "success": { "count": 1, "successRate": 100 }
+    }
+  }
+}

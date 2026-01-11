@@ -1,0 +1,246 @@
+{
+  "generatedAt": "2026-01-11T01:12:00.000Z",
+  "appName": "TaskFlow",
+  "globalImprovements": [
+    {
+      "id": "global-empty-states",
+      "principle": "Visibility of System Status",
+      "principleId": "N1",
+      "category": "visual-design",
+      "severity": "high",
+      "recommendation": "Design cohesive empty state illustrations across all screens",
+      "promptText": "Create friendly, encouraging illustrations for empty states that guide users toward taking action. Use consistent illustration style across home, calendar, and analytics screens.",
+      "affectedScreens": ["home-dashboard", "calendar-week-view", "analytics-dashboard"]
+    },
+    {
+      "id": "global-validation-feedback",
+      "principle": "Visibility of System Status",
+      "principleId": "N1",
+      "category": "form-design",
+      "severity": "high",
+      "recommendation": "Implement consistent inline validation feedback across all forms",
+      "promptText": "Add inline validation hints and helper text to forms. Show clear feedback when fields are required or have errors. Use subtle animations to draw attention to validation messages.",
+      "affectedScreens": ["login", "task-drawer-create"]
+    },
+    {
+      "id": "global-visual-hierarchy",
+      "principle": "Visual Hierarchy",
+      "principleId": "LOU-HIERARCHY",
+      "category": "visual-design",
+      "severity": "medium",
+      "recommendation": "Establish clearer visual hierarchy with consistent spacing and typography",
+      "promptText": "Use consistent spacing scale (8px base), clear heading hierarchy, and deliberate white space to establish visual rhythm. Primary actions should be visually dominant.",
+      "affectedScreens": ["home-dashboard", "analytics-dashboard", "profile-settings"]
+    },
+    {
+      "id": "global-interactive-states",
+      "principle": "Affordance",
+      "principleId": "LOU-AFFORD",
+      "category": "interaction-design",
+      "severity": "medium",
+      "recommendation": "Add clear hover/pressed states to all interactive elements",
+      "promptText": "Implement subtle background highlights and scale transforms on interactive elements to indicate tappability. Use consistent press feedback across all buttons, cards, and list items.",
+      "affectedScreens": ["profile-settings", "home-dashboard", "calendar-week-view"]
+    }
+  ],
+  "prioritizedImprovements": [
+    {
+      "id": "improve-task-drawer",
+      "principle": "Error Prevention",
+      "principleId": "N5",
+      "category": "form-design",
+      "severity": "high",
+      "recommendation": "Redesign task creation drawer with better validation and feedback",
+      "promptText": "Task creation drawer improvements: 1) Add inline validation showing task name is required with subtle helper text, 2) Use human-friendly date format (Today, Tomorrow, Jan 11), 3) Use intuitive priority colors (green→yellow→red gradient), 4) Show character count or limit for task name",
+      "affectedScreens": ["task-drawer-create"]
+    },
+    {
+      "id": "improve-analytics-empty",
+      "principle": "Visibility of System Status",
+      "principleId": "N1",
+      "category": "feedback",
+      "severity": "high",
+      "recommendation": "Show meaningful empty state in analytics chart",
+      "promptText": "When no activity data exists: 1) Show ghost/placeholder bars at 0 height with subtle fill, 2) Add encouraging message like 'Complete tasks to see your activity', 3) Include a CTA button to add first task",
+      "affectedScreens": ["analytics-dashboard"]
+    },
+    {
+      "id": "improve-home-engagement",
+      "principle": "Aesthetic and Minimalist Design",
+      "principleId": "N8",
+      "category": "visual-design",
+      "severity": "medium",
+      "recommendation": "Make home screen more engaging with better empty states and progress visualization",
+      "promptText": "Home screen improvements: 1) Add visible track behind progress ring to show potential, 2) Use friendly illustration for empty task state, 3) Add motivational micro-copy, 4) Consider onboarding hints for new users",
+      "affectedScreens": ["home-dashboard"]
+    },
+    {
+      "id": "improve-profile-hierarchy",
+      "principle": "Visual Hierarchy",
+      "principleId": "LOU-HIERARCHY",
+      "category": "visual-design",
+      "severity": "medium",
+      "recommendation": "Improve profile screen visual hierarchy and action styling",
+      "promptText": "Profile improvements: 1) Use neutral color for Sign Out (not red), 2) Add subtle backgrounds to settings rows for tap affordance, 3) Use generic user icon for guest avatar, 4) Position upgrade CTA to not compete with settings",
+      "affectedScreens": ["profile-settings"]
+    },
+    {
+      "id": "improve-calendar-navigation",
+      "principle": "Flexibility and Efficiency",
+      "principleId": "N7",
+      "category": "functionality",
+      "severity": "medium",
+      "recommendation": "Add quick navigation features to calendar",
+      "promptText": "Calendar improvements: 1) Add 'Today' button for quick navigation, 2) Use more engaging empty state illustration, 3) Consider showing selected date context in header",
+      "affectedScreens": ["calendar-week-view"]
+    },
+    {
+      "id": "improve-login-polish",
+      "principle": "Aesthetic and Minimalist Design",
+      "principleId": "N8",
+      "category": "visual-design",
+      "severity": "low",
+      "recommendation": "Polish login screen with better contrast and affordances",
+      "promptText": "Login polish: 1) Increase contrast for Continue as Guest button, 2) Add password visibility toggle, 3) Consider full-width primary CTA for larger touch target",
+      "affectedScreens": ["login"]
+    }
+  ],
+  "screenImprovements": [
+    {
+      "screenId": "login",
+      "screenName": "Login",
+      "screenType": "auth",
+      "improvements": [
+        {
+          "id": "aesthetic-login-contrast",
+          "principle": "Aesthetic and Minimalist Design",
+          "principleId": "N8",
+          "category": "visual-design",
+          "severity": "medium",
+          "recommendation": "Increase contrast for secondary actions or use subtle border to improve visibility",
+          "promptText": "Increase visual distinction for secondary CTA buttons with subtle borders or higher contrast",
+          "affectedScreens": ["login"]
+        }
+      ],
+      "promptInjections": [
+        "Increase contrast for Continue as Guest button using subtle border or lighter fill",
+        "Add password visibility toggle icon inside password input",
+        "Consider full-width primary button for Sign In CTA"
+      ]
+    },
+    {
+      "screenId": "home-dashboard",
+      "screenName": "Home Dashboard",
+      "screenType": "dashboard",
+      "improvements": [
+        {
+          "id": "visibility-home-progress",
+          "principle": "Visibility of System Status",
+          "principleId": "N1",
+          "category": "feedback",
+          "severity": "medium",
+          "recommendation": "Add subtle track/background to progress ring to show potential progress range",
+          "promptText": "Add visible track behind progress ring to show full 100% range",
+          "affectedScreens": ["home-dashboard"]
+        }
+      ],
+      "promptInjections": [
+        "Add visible background track to circular progress ring showing full potential",
+        "Use friendly illustration or character for empty task state",
+        "Add motivational message encouraging task creation",
+        "Increase spacing between Daily Goals card and Today's Tasks section"
+      ]
+    },
+    {
+      "screenId": "task-drawer-create",
+      "screenName": "Task Creation Drawer",
+      "screenType": "modal",
+      "improvements": [
+        {
+          "id": "visibility-drawer-validation",
+          "principle": "Visibility of System Status",
+          "principleId": "N1",
+          "category": "form-design",
+          "severity": "high",
+          "recommendation": "Add inline validation hint showing required field",
+          "promptText": "Add inline validation hint showing task name is required",
+          "affectedScreens": ["task-drawer-create"]
+        }
+      ],
+      "promptInjections": [
+        "Add subtle helper text under task name input: 'Give your task a name'",
+        "Display dates in human-friendly format: Today, Tomorrow, Jan 11",
+        "Use clear priority color scale: blue/green for Low, amber for Medium, red for High",
+        "Consider icons alongside category text to reduce label length"
+      ]
+    },
+    {
+      "screenId": "calendar-week-view",
+      "screenName": "Calendar Week View",
+      "screenType": "calendar",
+      "improvements": [
+        {
+          "id": "aesthetic-calendar-empty",
+          "principle": "Aesthetic and Minimalist Design",
+          "principleId": "N8",
+          "category": "visual-design",
+          "severity": "medium",
+          "recommendation": "Use more engaging empty state illustration that encourages planning",
+          "promptText": "Use friendly, encouraging illustration for empty calendar state",
+          "affectedScreens": ["calendar-week-view"]
+        }
+      ],
+      "promptInjections": [
+        "Add 'Today' button in header for quick navigation to current date",
+        "Use engaging illustration showing planning/productivity for empty state",
+        "Add subtle encouragement text: 'A clear day ahead - plan something!'"
+      ]
+    },
+    {
+      "screenId": "analytics-dashboard",
+      "screenName": "Analytics Dashboard",
+      "screenType": "analytics",
+      "improvements": [
+        {
+          "id": "visibility-analytics-empty",
+          "principle": "Visibility of System Status",
+          "principleId": "N1",
+          "category": "feedback",
+          "severity": "high",
+          "recommendation": "Show placeholder bars or explicit 'No activity yet' message in chart area",
+          "promptText": "Show ghost/placeholder bars or empty state message in activity chart",
+          "affectedScreens": ["analytics-dashboard"]
+        }
+      ],
+      "promptInjections": [
+        "Show subtle ghost bars at minimum height to indicate chart structure",
+        "Add encouraging empty state: 'Complete tasks to see your activity!'",
+        "Add time period label closer to main statistic number",
+        "Increase vertical spacing in category breakdown list"
+      ]
+    },
+    {
+      "screenId": "profile-settings",
+      "screenName": "Profile & Settings",
+      "screenType": "profile",
+      "improvements": [
+        {
+          "id": "affordance-profile-settings",
+          "principle": "Affordance",
+          "principleId": "LOU-AFFORD",
+          "category": "interaction-design",
+          "severity": "medium",
+          "recommendation": "Add subtle background highlight on settings rows to indicate tappability",
+          "promptText": "Add subtle hover/pressed state backgrounds to settings rows",
+          "affectedScreens": ["profile-settings"]
+        }
+      ],
+      "promptInjections": [
+        "Add subtle background to settings rows for clear tap affordance",
+        "Use neutral/muted color for Sign Out button (not red)",
+        "Use generic user icon for guest avatar instead of 'GU' initials",
+        "Move or restyle Upgrade button to reduce visual competition with settings"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "projectId": "",
+  "createdAt": "",
+  "updatedAt": "",
+  "viewport": "mobile",
+  "appUrl": "",
+  "phases": {
+    "capture": { "status": "pending" },
+    "audit": { "status": "pending" },
+    "anchoring": { "status": "pending" },
+    "propagation": { "status": "pending" },
+    "states": { "status": "pending" },
+    "coherence": { "status": "pending" },
+    "specs": { "status": "pending" }
+  },
+  "totalScreens": 0,
+  "styleConfig": null
+}

@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "propagation-report.schema.json",
+  "title": "UX Propagation Report",
+  "description": "Report of propagated screen redesigns with styling from validated anchors",
+  "type": "object",
+  "required": ["propagatedAt", "appName", "viewport", "screens", "summary"],
+  "properties": {
+    "propagatedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO timestamp of propagation completion"
+    },
+    "appName": {
+      "type": "string",
+      "description": "Name of the application being redesigned"
+    },
+    "viewport": {
+      "type": "string",
+      "enum": ["mobile", "tablet", "desktop", "desktop-xl"],
+      "description": "Target viewport for propagation"
+    },
+    "batchSize": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Number of screens processed per batch"
+    },
+    "screens": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/propagatedScreen" },
+      "description": "Array of propagated screen results"
+    },
+    "summary": {
+      "$ref": "#/$defs/propagationSummary",
+      "description": "Aggregated propagation statistics"
+    }
+  },
+  "$defs": {
+    "propagatedScreen": {
+      "type": "object",
+      "required": ["screenId", "screenName", "originalPath", "propagatedPath", "success"],
+      "properties": {
+        "screenId": {
+          "type": "string",
+          "description": "Unique identifier for the screen"
+        },
+        "screenName": {
+          "type": "string",
+          "description": "Human-readable screen name"
+        },
+        "screenType": {
+          "type": "string",
+          "description": "Classified screen type (dashboard, form, list, etc.)"
+        },
+        "originalPath": {
+          "type": "string",
+          "description": "Path to original captured screenshot"
+        },
+        "propagatedPath": {
+          "type": "string",
+          "description": "Path to generated redesigned screenshot"
+        },
+        "success": {
+          "type": "boolean",
+          "description": "Whether propagation succeeded"
+        },
+        "attempts": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Number of generation attempts"
+        },
+        "cost": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Generation cost in USD"
+        },
+        "strengthUsed": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Strength setting used for generation"
+        },
+        "improvementsApplied": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Audit improvements injected into prompt"
+        },
+        "error": {
+          "type": "string",
+          "description": "Error message if propagation failed"
+        }
+      }
+    },
+    "propagationSummary": {
+      "type": "object",
+      "required": ["totalScreens", "successCount", "failureCount", "totalCost"],
+      "properties": {
+        "totalScreens": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total number of screens processed"
+        },
+        "successCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of successfully propagated screens"
+        },
+        "failureCount": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of failed propagations"
+        },
+        "totalCost": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Total generation cost in USD"
+        },
+        "averageAttempts": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Average attempts per screen"
+        },
+        "byScreenType": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "count": { "type": "integer" },
+              "successRate": { "type": "number" }
+            }
+          },
+          "description": "Statistics grouped by screen type"
+        }
+      }
+    }
+  }
+}

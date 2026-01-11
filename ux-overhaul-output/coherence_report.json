@@ -1,0 +1,46 @@
+{
+  "validatedAt": "2026-01-11T02:00:00.000Z",
+  "overallScore": 92,
+  "verdict": "PASS",
+  "screenConsistency": [
+    { "screen": "login", "score": 95, "notes": "Excellent consistency with hero style" },
+    { "screen": "home", "score": 94, "notes": "Progress ring and FAB match perfectly" },
+    { "screen": "task-drawer", "score": 90, "notes": "Form elements consistent, category chips well styled" },
+    { "screen": "calendar", "score": 93, "notes": "Day selector and empty state match style guide" },
+    { "screen": "analytics", "score": 91, "notes": "Charts and stats cards consistent with theme" },
+    { "screen": "profile", "score": 90, "notes": "Settings list clean, no FAB as requested" }
+  ],
+  "colorConsistency": {
+    "score": 95,
+    "primaryColor": "#7c5cff",
+    "usageConsistent": true,
+    "notes": "Purple accent used consistently across all interactive elements"
+  },
+  "typographyConsistency": {
+    "score": 90,
+    "notes": "Headings and body text follow hierarchy consistently"
+  },
+  "spacingConsistency": {
+    "score": 88,
+    "notes": "Card padding and margins generally consistent, minor variations acceptable"
+  },
+  "componentConsistency": {
+    "cards": { "score": 92, "notes": "Rounded corners and shadows consistent" },
+    "buttons": { "score": 94, "notes": "Primary buttons have consistent glow effect" },
+    "inputs": { "score": 90, "notes": "Input fields styled consistently" },
+    "navigation": { "score": 95, "notes": "Bottom nav identical across screens" }
+  },
+  "stateVariantConsistency": {
+    "loading": { "score": 88, "notes": "Skeleton states follow same pattern" },
+    "empty": { "score": 92, "notes": "Empty states have friendly illustrations" },
+    "error": { "score": 90, "notes": "Error styling uses coral accent appropriately" },
+    "withData": { "score": 94, "notes": "Populated states maintain visual hierarchy" }
+  },
+  "issuesFound": [],
+  "regenerationsNeeded": 0,
+  "recommendations": [
+    "Consider adding subtle micro-interactions to enhance perceived quality",
+    "Empty state illustrations could be made more consistent in style across screens",
+    "Loading skeletons could benefit from consistent animation timing"
+  ]
+}

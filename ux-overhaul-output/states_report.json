@@ -1,0 +1,42 @@
+{
+  "completedAt": "2026-01-11T01:36:01.230Z",
+  "variants": [
+    {
+      "screen": "home",
+      "state": "loading",
+      "path": "generated/states/home/loading.png"
+    },
+    {
+      "screen": "home",
+      "state": "empty",
+      "path": "generated/states/home/empty.png"
+    },
+    {
+      "screen": "home",
+      "state": "error",
+      "path": "generated/states/home/error.png"
+    },
+    {
+      "screen": "calendar",
+      "state": "loading",
+      "path": "generated/states/calendar/loading.png"
+    },
+    {
+      "screen": "calendar",
+      "state": "with-tasks",
+      "path": "generated/states/calendar/with-tasks.png"
+    },
+    {
+      "screen": "analytics",
+      "state": "loading",
+      "path": "generated/states/analytics/loading.png"
+    },
+    {
+      "screen": "analytics",
+      "state": "with-data",
+      "path": "generated/states/analytics/with-data.png"
+    }
+  ],
+  "count": 7,
+  "cost": 1.05
+}

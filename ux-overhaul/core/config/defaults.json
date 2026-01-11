@@ -1,0 +1,30 @@
+{
+  "skill": {
+    "name": "ux-overhaul",
+    "version": "1.0.0"
+  },
+  "capture": {
+    "defaultViewport": "mobile",
+    "screenshotFormat": "png",
+    "screenshotQuality": 100,
+    "waitAfterNavigation": 1000,
+    "waitAfterAction": 500,
+    "maxScreensPerBatch": 5
+  },
+  "generation": {
+    "maxRetries": 3,
+    "retryDelayMs": 1000,
+    "defaultResolution": "1K",
+    "outputFormat": "png"
+  },
+  "batch": {
+    "screensPerBatch": 5,
+    "clearContextAfterBatch": true
+  },
+  "paths": {
+    "outputDir": "./ux-overhaul-output",
+    "screenshotsDir": "screenshots",
+    "generatedDir": "generated",
+    "specsDir": "specs"
+  }
+}

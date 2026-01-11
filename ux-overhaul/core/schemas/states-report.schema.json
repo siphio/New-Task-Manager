@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "states-report.schema.json",
+  "title": "UX States Report",
+  "type": "object",
+  "required": ["generatedAt", "appName", "viewport", "screens", "summary"],
+  "properties": {
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "appName": { "type": "string" },
+    "viewport": { "type": "string", "enum": ["mobile", "tablet", "desktop", "desktop-xl"] },
+    "batchSize": { "type": "integer", "minimum": 1 },
+    "screens": { "type": "array", "items": { "$ref": "#/$defs/screenStates" } },
+    "summary": { "$ref": "#/$defs/statesSummary" }
+  },
+  "$defs": {
+    "stateType": { "type": "string", "enum": ["loading", "empty", "error", "success"] },
+    "generatedState": {
+      "type": "object",
+      "required": ["screenId", "screenName", "stateType", "originalPropagatedPath", "statePath", "success"],
+      "properties": {
+        "screenId": { "type": "string" },
+        "screenName": { "type": "string" },
+        "stateType": { "$ref": "#/$defs/stateType" },
+        "originalPropagatedPath": { "type": "string" },
+        "statePath": { "type": "string" },
+        "success": { "type": "boolean" },
+        "attempts": { "type": "integer", "minimum": 1 },
+        "cost": { "type": "number", "minimum": 0 },
+        "strengthUsed": { "type": "number", "minimum": 0, "maximum": 1 },
+        "error": { "type": "string" }
+      }
+    },
+    "screenStates": {
+      "type": "object",
+      "required": ["screenId", "screenName", "states", "totalCost", "successCount"],
+      "properties": {
+        "screenId": { "type": "string" },
+        "screenName": { "type": "string" },
+        "states": { "type": "array", "items": { "$ref": "#/$defs/generatedState" } },
+        "totalCost": { "type": "number", "minimum": 0 },
+        "successCount": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "statesSummary": {
+      "type": "object",
+      "required": ["totalScreens", "totalStates", "successCount", "failureCount", "totalCost"],
+      "properties": {
+        "totalScreens": { "type": "integer", "minimum": 0 },
+        "totalStates": { "type": "integer", "minimum": 0 },
+        "successCount": { "type": "integer", "minimum": 0 },
+        "failureCount": { "type": "integer", "minimum": 0 },
+        "totalCost": { "type": "number", "minimum": 0 },
+        "averageAttempts": { "type": "number", "minimum": 0 },
+        "byStateType": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": { "count": { "type": "integer" }, "successRate": { "type": "number" } }
+          }
+        }
+      }
+    }
+  }
+}

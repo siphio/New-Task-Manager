@@ -1,0 +1,81 @@
+{
+  "appName": "TaskFlow",
+  "baseUrl": "http://localhost:5173",
+  "viewport": "mobile",
+  "flows": [
+    {
+      "name": "auth_flow",
+      "description": "Authentication screens",
+      "steps": [
+        { "action": "navigate", "url": "/login" },
+        { "action": "wait", "ms": 500 },
+        { "action": "screenshot", "name": "login" }
+      ]
+    },
+    {
+      "name": "main_flow",
+      "description": "Core app navigation after guest login",
+      "steps": [
+        { "action": "navigate", "url": "/login" },
+        { "action": "wait", "ms": 300 },
+        { "action": "click", "selector": "button:has-text('Continue as Guest')" },
+        { "action": "wait", "ms": 500 },
+        { "action": "screenshot", "name": "home-dashboard" },
+
+        { "action": "click", "selector": "[data-testid='fab'], button.fixed.bottom-20" },
+        { "action": "wait", "ms": 400 },
+        { "action": "screenshot", "name": "task-drawer-create" },
+        { "action": "click", "selector": "[data-testid='drawer-close'], button[aria-label='Close']" },
+        { "action": "wait", "ms": 300 },
+
+        { "action": "navigate", "url": "/calendar" },
+        { "action": "wait", "ms": 500 },
+        { "action": "screenshot", "name": "calendar-week-view" },
+
+        { "action": "navigate", "url": "/analytics" },
+        { "action": "wait", "ms": 500 },
+        { "action": "screenshot", "name": "analytics-dashboard" },
+
+        { "action": "navigate", "url": "/profile" },
+        { "action": "wait", "ms": 500 },
+        { "action": "screenshot", "name": "profile-settings" }
+      ]
+    },
+    {
+      "name": "task_details_flow",
+      "description": "Task interaction screens",
+      "steps": [
+        { "action": "navigate", "url": "/" },
+        { "action": "wait", "ms": 500 },
+        { "action": "click", "selector": "[data-testid='task-card']:first-child, .task-card:first-child" },
+        { "action": "wait", "ms": 400 },
+        { "action": "screenshot", "name": "task-details" }
+      ]
+    },
+    {
+      "name": "empty_states_flow",
+      "description": "Empty state screens for fresh user",
+      "steps": [
+        { "action": "navigate", "url": "/" },
+        { "action": "wait", "ms": 500 },
+        { "action": "screenshot", "name": "home-empty-state" }
+      ]
+    }
+  ],
+  "selectors": {
+    "bottomNav": {
+      "home": "nav button:nth-child(1)",
+      "calendar": "nav button:nth-child(2)",
+      "analytics": "nav button:nth-child(3)",
+      "profile": "nav button:nth-child(4)"
+    },
+    "fab": "button.fixed.bottom-20, [data-testid='fab']",
+    "taskCard": "[data-testid='task-card'], .task-card",
+    "checkbox": "[data-testid='task-checkbox'], input[type='checkbox']"
+  },
+  "notes": {
+    "guestMode": "Use 'Continue as Guest' button to skip auth setup",
+    "animations": "Wait times account for Framer Motion transitions",
+    "darkMode": "App defaults to dark theme"
+  }
+}

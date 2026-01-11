@@ -1,0 +1,227 @@
+{
+  "framework": "Laws of UX",
+  "source": "Laws of UX by Jon Yablonski",
+  "url": "https://lawsofux.com/",
+  "laws": [
+    {
+      "id": "FITTS",
+      "name": "Fitts's Law",
+      "description": "The time to acquire a target is a function of the distance to and size of the target. Make important targets large and position them close to users.",
+      "category": "motor",
+      "checks": [
+        {
+          "id": "FITTS-target-size",
+          "name": "Touch target size",
+          "description": "Interactive elements should be at least 44x44px for touch devices",
+          "thresholds": {
+            "minWidth": 44,
+            "minHeight": 44,
+            "mobileMinWidth": 44,
+            "mobileMinHeight": 44
+          },
+          "severity": "high"
+        },
+        {
+          "id": "FITTS-target-spacing",
+          "name": "Touch target spacing",
+          "description": "Interactive elements should have adequate spacing to prevent mis-taps",
+          "thresholds": {
+            "minGap": 8
+          },
+          "severity": "medium"
+        },
+        {
+          "id": "FITTS-cta-prominence",
+          "name": "CTA prominence",
+          "description": "Primary call-to-action buttons should be larger and more prominent than secondary actions",
+          "elementPurposes": ["submission"],
+          "severity": "medium"
+        },
+        {
+          "id": "FITTS-small-icons",
+          "name": "Small icon buttons",
+          "description": "Icon-only buttons with minimal text may be too small for easy interaction",
+          "thresholds": {
+            "minTextLength": 2
+          },
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "id": "HICK",
+      "name": "Hick's Law",
+      "description": "The time it takes to make a decision increases with the number and complexity of choices. Minimize choices when response times are critical.",
+      "category": "cognitive",
+      "checks": [
+        {
+          "id": "HICK-nav-items",
+          "name": "Navigation item count",
+          "description": "Primary navigation should have 7 or fewer items",
+          "thresholds": {
+            "maxNavItems": 7,
+            "warningNavItems": 5
+          },
+          "severity": "medium"
+        },
+        {
+          "id": "HICK-action-buttons",
+          "name": "Action button count",
+          "description": "Screens should limit visible action buttons to reduce decision fatigue",
+          "thresholds": {
+            "maxActionButtons": 5,
+            "warningActionButtons": 3
+          },
+          "severity": "medium"
+        },
+        {
+          "id": "HICK-dropdown-items",
+          "name": "Dropdown option count",
+          "description": "Dropdowns with many options should include search or grouping",
+          "thresholds": {
+            "maxDropdownItems": 15,
+            "requiresSearch": 10
+          },
+          "severity": "low"
+        },
+        {
+          "id": "HICK-excessive-nav",
+          "name": "Excessive navigation",
+          "description": "Navigation with too many items creates cognitive overload",
+          "thresholds": {
+            "criticalNavItems": 12
+          },
+          "severity": "high"
+        }
+      ]
+    },
+    {
+      "id": "MILLER",
+      "name": "Miller's Law",
+      "description": "The average person can only keep 7 (plus or minus 2) items in their working memory. Chunk content into digestible groups.",
+      "category": "cognitive",
+      "checks": [
+        {
+          "id": "MILLER-form-fields",
+          "name": "Form field count",
+          "description": "Forms should have 9 or fewer visible fields without grouping",
+          "thresholds": {
+            "maxVisibleFields": 9,
+            "warningFields": 7,
+            "criticalFields": 15
+          },
+          "severity": "high"
+        },
+        {
+          "id": "MILLER-section-items",
+          "name": "Items per section",
+          "description": "Each section or group should contain 7 or fewer items",
+          "thresholds": {
+            "maxPerSection": 7,
+            "maxSections": 5
+          },
+          "severity": "medium"
+        },
+        {
+          "id": "MILLER-tab-count",
+          "name": "Tab count",
+          "description": "Tab interfaces should have 5 or fewer tabs visible at once",
+          "thresholds": {
+            "maxTabs": 5,
+            "criticalTabs": 8
+          },
+          "severity": "medium"
+        },
+        {
+          "id": "MILLER-extreme-form",
+          "name": "Extreme form complexity",
+          "description": "Forms with 15+ fields require chunking into multi-step flows",
+          "thresholds": {
+            "criticalFields": 15
+          },
+          "severity": "critical"
+        }
+      ]
+    },
+    {
+      "id": "PROXIMITY",
+      "name": "Law of Proximity",
+      "description": "Objects that are near, or proximate to each other, tend to be grouped together. Use proximity to create relationships between elements.",
+      "category": "design",
+      "checks": [
+        {
+          "id": "PROXIMITY-label-input",
+          "name": "Label-input proximity",
+          "description": "Form labels should be close to their associated inputs",
+          "thresholds": {
+            "maxLabelDistance": 24
+          },
+          "formRequirement": "hasLabels",
+          "severity": "high"
+        },
+        {
+          "id": "PROXIMITY-action-group",
+          "name": "Action button grouping",
+          "description": "Related action buttons should be grouped together",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "id": "DOHERTY",
+      "name": "Doherty Threshold",
+      "description": "Productivity soars when a computer and its users interact at a pace (<400ms) that ensures neither has to wait on the other.",
+      "category": "feedback",
+      "checks": [
+        {
+          "id": "DOHERTY-feedback",
+          "name": "Immediate feedback",
+          "description": "User actions should provide immediate visual feedback",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "id": "JAKOB",
+      "name": "Jakob's Law",
+      "description": "Users spend most of their time on other sites. This means that users prefer your site to work the same way as all the other sites they already know.",
+      "category": "consistency",
+      "checks": [
+        {
+          "id": "JAKOB-conventions",
+          "name": "Follow conventions",
+          "description": "UI patterns should follow established conventions",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "id": "AESTHETIC",
+      "name": "Aesthetic-Usability Effect",
+      "description": "Users often perceive aesthetically pleasing design as design that's more usable. Aesthetic design creates a positive response and increases tolerance for usability issues.",
+      "category": "design",
+      "checks": [
+        {
+          "id": "AESTHETIC-visual-balance",
+          "name": "Visual balance",
+          "description": "Layout should have appropriate whitespace and visual balance",
+          "severity": "low"
+        }
+      ]
+    },
+    {
+      "id": "PEAK-END",
+      "name": "Peak-End Rule",
+      "description": "People judge an experience largely based on how they felt at its peak and at its end, rather than based on the sum of every moment of the experience.",
+      "category": "feedback",
+      "checks": [
+        {
+          "id": "PEAK-END-success",
+          "name": "Success states",
+          "description": "Key moments (completion, success) should have satisfying feedback",
+          "severity": "medium"
+        }
+      ]
+    }
+  ]
+}

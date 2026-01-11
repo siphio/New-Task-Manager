@@ -1,0 +1,235 @@
+{
+  "framework": "WCAG 2.2 Essentials",
+  "source": "Web Content Accessibility Guidelines (WCAG) 2.2",
+  "url": "https://www.w3.org/WAI/standards-guidelines/wcag/",
+  "level": "AA",
+  "criteria": [
+    {
+      "id": "WCAG-1.1.1",
+      "name": "Non-text Content",
+      "level": "A",
+      "description": "All non-text content that is presented to the user has a text alternative that serves the equivalent purpose.",
+      "category": "perceivable",
+      "checks": [
+        {
+          "id": "A11Y-IMG-ALT",
+          "name": "Image alt text",
+          "description": "Images must have alt text describing their content or purpose",
+          "failSelectors": ["img:not([alt])", "img[alt='']"],
+          "severity": "critical"
+        },
+        {
+          "id": "A11Y-IMG-DECORATIVE",
+          "name": "Decorative images",
+          "description": "Decorative images should have empty alt or role='presentation'",
+          "severity": "low"
+        }
+      ]
+    },
+    {
+      "id": "WCAG-1.3.1",
+      "name": "Info and Relationships",
+      "level": "A",
+      "description": "Information, structure, and relationships conveyed through presentation can be programmatically determined.",
+      "category": "perceivable",
+      "checks": [
+        {
+          "id": "A11Y-HEADING-HIERARCHY",
+          "name": "Heading hierarchy",
+          "description": "Headings must follow a logical hierarchy (H1 > H2 > H3, no skipped levels)",
+          "headingRequirement": "hierarchyValid",
+          "severity": "high"
+        },
+        {
+          "id": "A11Y-HEADING-H1",
+          "name": "H1 presence",
+          "description": "Each page should have exactly one H1 heading",
+          "headingRequirement": "hasH1",
+          "severity": "high"
+        },
+        {
+          "id": "A11Y-FORM-LABELS",
+          "name": "Form input labels",
+          "description": "Form inputs must have associated labels (label element or aria-label)",
+          "formRequirement": "hasLabels",
+          "severity": "critical"
+        }
+      ]
+    },
+    {
+      "id": "WCAG-1.4.3",
+      "name": "Contrast (Minimum)",
+      "level": "AA",
+      "description": "The visual presentation of text has a contrast ratio of at least 4.5:1.",
+      "category": "perceivable",
+      "checks": [
+        {
+          "id": "A11Y-CONTRAST",
+          "name": "Text contrast",
+          "description": "Text must have sufficient contrast ratio against background",
+          "thresholds": {
+            "minContrastNormal": 4.5,
+            "minContrastLarge": 3
+          },
+          "severity": "high",
+          "note": "Requires computed style analysis - deferred to runtime"
+        }
+      ]
+    },
+    {
+      "id": "WCAG-2.1.1",
+      "name": "Keyboard",
+      "level": "A",
+      "description": "All functionality of the content is operable through a keyboard interface.",
+      "category": "operable",
+      "checks": [
+        {
+          "id": "A11Y-KEYBOARD-FOCUSABLE",
+          "name": "Keyboard focusable",
+          "description": "All interactive elements must be keyboard focusable",
+          "severity": "high"
+        },
+        {
+          "id": "A11Y-KEYBOARD-ACCESS",
+          "name": "Keyboard accessible buttons",
+          "description": "Buttons should have text or aria-label for keyboard users",
+          "failCondition": "button without text AND without ariaLabel",
+          "severity": "high"
+        }
+      ]
+    },
+    {
+      "id": "WCAG-2.4.1",
+      "name": "Bypass Blocks",
+      "level": "A",
+      "description": "A mechanism is available to bypass blocks of content that are repeated on multiple pages.",
+      "category": "operable",
+      "checks": [
+        {
+          "id": "A11Y-SKIP-LINK",
+          "name": "Skip navigation link",
+          "description": "Pages should have skip-to-content link for keyboard users",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "id": "WCAG-2.4.4",
+      "name": "Link Purpose (In Context)",
+      "level": "A",
+      "description": "The purpose of each link can be determined from the link text alone or together with its programmatically determined link context.",
+      "category": "operable",
+      "checks": [
+        {
+          "id": "A11Y-LINK-TEXT",
+          "name": "Descriptive link text",
+          "description": "Link text should describe the destination, not generic phrases",
+          "failTexts": ["click here", "read more", "learn more", "here", "more", "link"],
+          "severity": "high"
+        }
+      ]
+    },
+    {
+      "id": "WCAG-2.4.6",
+      "name": "Headings and Labels",
+      "level": "AA",
+      "description": "Headings and labels describe topic or purpose.",
+      "category": "operable",
+      "checks": [
+        {
+          "id": "A11Y-HEADING-DESCRIPTIVE",
+          "name": "Descriptive headings",
+          "description": "Headings should describe the content that follows",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "id": "WCAG-2.5.8",
+      "name": "Target Size (Minimum)",
+      "level": "AA",
+      "description": "The size of the target for pointer inputs is at least 24 by 24 CSS pixels.",
+      "category": "operable",
+      "checks": [
+        {
+          "id": "A11Y-TARGET-SIZE",
+          "name": "Minimum target size",
+          "description": "Interactive elements must be at least 24x24 CSS pixels",
+          "thresholds": {
+            "minWidth": 24,
+            "minHeight": 24
+          },
+          "severity": "high"
+        }
+      ]
+    },
+    {
+      "id": "WCAG-3.1.1",
+      "name": "Language of Page",
+      "level": "A",
+      "description": "The default human language of each page can be programmatically determined.",
+      "category": "understandable",
+      "checks": [
+        {
+          "id": "A11Y-LANG",
+          "name": "Page language",
+          "description": "HTML element should have lang attribute",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "id": "WCAG-3.3.1",
+      "name": "Error Identification",
+      "level": "A",
+      "description": "If an input error is automatically detected, the item that is in error is identified and the error is described to the user in text.",
+      "category": "understandable",
+      "checks": [
+        {
+          "id": "A11Y-ERROR-ID",
+          "name": "Error identification",
+          "description": "Form errors should clearly identify which field has the error",
+          "severity": "high"
+        }
+      ]
+    },
+    {
+      "id": "WCAG-3.3.2",
+      "name": "Labels or Instructions",
+      "level": "A",
+      "description": "Labels or instructions are provided when content requires user input.",
+      "category": "understandable",
+      "checks": [
+        {
+          "id": "A11Y-INPUT-LABELS",
+          "name": "Visible input labels",
+          "description": "Form inputs should have visible labels (not just placeholders)",
+          "formRequirement": "hasLabels",
+          "severity": "critical"
+        }
+      ]
+    },
+    {
+      "id": "WCAG-4.1.2",
+      "name": "Name, Role, Value",
+      "level": "A",
+      "description": "For all user interface components, the name and role can be programmatically determined.",
+      "category": "robust",
+      "checks": [
+        {
+          "id": "A11Y-LANDMARKS",
+          "name": "Landmark regions",
+          "description": "Page should have appropriate landmark regions (main, navigation, etc.)",
+          "landmarkRequirements": ["main"],
+          "severity": "medium"
+        },
+        {
+          "id": "A11Y-BUTTON-NAME",
+          "name": "Button accessible name",
+          "description": "All buttons must have an accessible name (text or aria-label)",
+          "severity": "high"
+        }
+      ]
+    }
+  ]
+}

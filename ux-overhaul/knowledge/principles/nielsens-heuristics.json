@@ -1,0 +1,245 @@
+{
+  "framework": "Nielsen's 10 Usability Heuristics",
+  "source": "Nielsen Norman Group",
+  "url": "https://www.nngroup.com/articles/ten-usability-heuristics/",
+  "heuristics": [
+    {
+      "id": "NH1",
+      "name": "Visibility of System Status",
+      "description": "The design should always keep users informed about what is going on, through appropriate feedback within a reasonable amount of time.",
+      "category": "feedback",
+      "checks": [
+        {
+          "id": "NH1-loading-indicator",
+          "name": "Loading indicator presence",
+          "description": "Actions that take time should show loading indicators",
+          "elementPurposes": ["submission", "navigation"],
+          "severity": "high"
+        },
+        {
+          "id": "NH1-active-nav",
+          "name": "Active navigation state",
+          "description": "Current page/section should be visually indicated in navigation",
+          "elementPurposes": ["navigation"],
+          "severity": "high"
+        },
+        {
+          "id": "NH1-progress-indicator",
+          "name": "Multi-step progress indicator",
+          "description": "Multi-step processes should show current step and total steps",
+          "elementPurposes": ["navigation-forward"],
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "id": "NH2",
+      "name": "Match Between System and Real World",
+      "description": "The design should speak the users' language. Use words, phrases, and concepts familiar to the user, rather than internal jargon.",
+      "category": "consistency",
+      "checks": [
+        {
+          "id": "NH2-clear-labels",
+          "name": "Clear button labels",
+          "description": "Button text should clearly describe the action",
+          "elementPurposes": ["submission", "action"],
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "id": "NH3",
+      "name": "User Control and Freedom",
+      "description": "Users often perform actions by mistake. They need a clearly marked 'emergency exit' to leave the unwanted action without having to go through an extended process.",
+      "category": "control",
+      "checks": [
+        {
+          "id": "NH3-cancel-button",
+          "name": "Cancel/back button in forms",
+          "description": "Forms and dialogs should have cancel or back options",
+          "elementPurposes": ["dismissal", "navigation-backward"],
+          "severity": "high"
+        },
+        {
+          "id": "NH3-undo-available",
+          "name": "Undo capability",
+          "description": "Destructive actions should be undoable when possible",
+          "elementPurposes": ["deletion", "modification"],
+          "severity": "medium"
+        },
+        {
+          "id": "NH3-modal-close",
+          "name": "Modal close option",
+          "description": "Modal dialogs should have clear close/dismiss options",
+          "elementPurposes": ["dismissal"],
+          "severity": "high"
+        }
+      ]
+    },
+    {
+      "id": "NH4",
+      "name": "Consistency and Standards",
+      "description": "Users should not have to wonder whether different words, situations, or actions mean the same thing. Follow platform and industry conventions.",
+      "category": "consistency",
+      "checks": [
+        {
+          "id": "NH4-consistent-actions",
+          "name": "Consistent action placement",
+          "description": "Primary actions should be consistently placed across screens",
+          "elementPurposes": ["submission", "action"],
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "id": "NH5",
+      "name": "Error Prevention",
+      "description": "Good error messages are important, but the best designs carefully prevent problems from occurring in the first place.",
+      "category": "prevention",
+      "checks": [
+        {
+          "id": "NH5-delete-confirm",
+          "name": "Destructive action confirmation",
+          "description": "Delete and other destructive actions should require confirmation",
+          "elementPurposes": ["deletion"],
+          "severity": "critical"
+        },
+        {
+          "id": "NH5-form-validation",
+          "name": "Input validation presence",
+          "description": "Forms should have validation to prevent invalid submissions",
+          "formRequirement": "hasValidation",
+          "severity": "high"
+        },
+        {
+          "id": "NH5-input-constraints",
+          "name": "Input constraints",
+          "description": "Inputs should have appropriate constraints (type, pattern, required)",
+          "formRequirement": "hasValidation",
+          "severity": "medium"
+        }
+      ]
+    },
+    {
+      "id": "NH6",
+      "name": "Recognition Rather Than Recall",
+      "description": "Minimize the user's memory load by making elements, actions, and options visible. The user should not have to remember information from one part of the interface to another.",
+      "category": "memory",
+      "checks": [
+        {
+          "id": "NH6-visible-labels",
+          "name": "Visible form labels",
+          "description": "Form fields should have visible labels (not just placeholders)",
+          "formRequirement": "hasLabels",
+          "severity": "critical"
+        },
+        {
+          "id": "NH6-persistent-nav",
+          "name": "Persistent navigation",
+          "description": "Navigation should remain visible/accessible across the app",
+          "landmarkRequirement": "navigation",
+          "severity": "high"
+        },
+        {
+          "id": "NH6-context-hints",
+          "name": "Contextual hints",
+          "description": "Complex inputs should have helper text explaining expected format",
+          "elementPurposes": ["help"],
+          "severity": "low"
+        }
+      ]
+    },
+    {
+      "id": "NH7",
+      "name": "Flexibility and Efficiency of Use",
+      "description": "Shortcuts — hidden from novice users — can speed up the interaction for the expert user such that the design can cater to both inexperienced and experienced users.",
+      "category": "efficiency",
+      "checks": [
+        {
+          "id": "NH7-search-present",
+          "name": "Search for large lists",
+          "description": "Lists with many items should have search/filter capability",
+          "elementPurposes": ["search"],
+          "minElements": 10,
+          "severity": "medium"
+        },
+        {
+          "id": "NH7-keyboard-shortcuts",
+          "name": "Keyboard shortcuts",
+          "description": "Common actions should support keyboard shortcuts",
+          "severity": "low"
+        }
+      ]
+    },
+    {
+      "id": "NH8",
+      "name": "Aesthetic and Minimalist Design",
+      "description": "Interfaces should not contain information which is irrelevant or rarely needed. Every extra unit of information in an interface competes with the relevant units of information.",
+      "category": "design",
+      "checks": [
+        {
+          "id": "NH8-heading-hierarchy",
+          "name": "Proper heading hierarchy",
+          "description": "Content should have clear heading hierarchy (H1 > H2 > H3)",
+          "headingRequirement": "hierarchyValid",
+          "severity": "medium"
+        },
+        {
+          "id": "NH8-single-h1",
+          "name": "Single H1 per page",
+          "description": "Each page should have exactly one H1 heading",
+          "headingRequirement": "singleH1",
+          "severity": "medium"
+        },
+        {
+          "id": "NH8-content-density",
+          "name": "Content density",
+          "description": "Content should be appropriately spaced and not overcrowded",
+          "severity": "low"
+        }
+      ]
+    },
+    {
+      "id": "NH9",
+      "name": "Help Users Recognize, Diagnose, and Recover from Errors",
+      "description": "Error messages should be expressed in plain language (no error codes), precisely indicate the problem, and constructively suggest a solution.",
+      "category": "errors",
+      "checks": [
+        {
+          "id": "NH9-inline-errors",
+          "name": "Inline error messages",
+          "description": "Form errors should appear inline near the problematic field",
+          "formRequirement": "hasValidation",
+          "severity": "critical"
+        },
+        {
+          "id": "NH9-error-clarity",
+          "name": "Clear error messaging",
+          "description": "Error messages should explain what went wrong and how to fix it",
+          "severity": "high"
+        }
+      ]
+    },
+    {
+      "id": "NH10",
+      "name": "Help and Documentation",
+      "description": "It's best if the system doesn't need any additional explanation. However, it may be necessary to provide documentation to help users understand how to complete their tasks.",
+      "category": "help",
+      "checks": [
+        {
+          "id": "NH10-help-available",
+          "name": "Help availability",
+          "description": "Complex interfaces should have accessible help or documentation",
+          "elementPurposes": ["help"],
+          "severity": "low"
+        },
+        {
+          "id": "NH10-tooltips",
+          "name": "Tooltips for icons",
+          "description": "Icon-only buttons should have tooltips explaining their function",
+          "severity": "low"
+        }
+      ]
+    }
+  ]
+}

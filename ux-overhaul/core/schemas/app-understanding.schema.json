@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "app-understanding.schema.json",
+  "title": "App Understanding",
+  "description": "Complete forensic understanding of captured application",
+  "type": "object",
+  "required": ["appName", "capturedAt", "viewport", "screens", "sitemap"],
+  "properties": {
+    "appName": { "type": "string" },
+    "capturedAt": { "type": "string", "format": "date-time" },
+    "viewport": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "width": { "type": "integer" },
+        "height": { "type": "integer" },
+        "aspectRatio": { "type": "string" }
+      }
+    },
+    "screens": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/screen" }
+    },
+    "sitemap": {
+      "type": "object",
+      "properties": {
+        "totalScreens": { "type": "integer" },
+        "flows": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string" },
+              "screens": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        }
+      }
+    },
+    "detectedPatterns": {
+      "type": "object",
+      "properties": {
+        "colors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "hex": { "type": "string" },
+              "usage": { "type": "string" },
+              "frequency": { "type": "integer" }
+            }
+          }
+        },
+        "fonts": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "spacing": {
+          "type": "object",
+          "properties": {
+            "base": { "type": "integer" },
+            "scale": { "type": "array", "items": { "type": "integer" } }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "screen": {
+      "type": "object",
+      "required": ["id", "name", "path", "screenshotPath"],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "path": { "type": "string", "description": "URL path" },
+        "screenshotPath": { "type": "string" },
+        "flowName": { "type": "string" },
+        "order": { "type": "integer" },
+        "dom": { "$ref": "#/$defs/domAnalysis" },
+        "states": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": { "type": "string" },
+              "screenshotPath": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "domAnalysis": {
+      "type": "object",
+      "properties": {
+        "interactiveElements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": { "type": "string", "enum": ["button", "link", "input", "select", "checkbox", "radio", "textarea"] },
+              "selector": { "type": "string" },
+              "text": { "type": "string" },
+              "purpose": { "type": "string" }
+            }
+          }
+        },
+        "headings": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "level": { "type": "integer", "minimum": 1, "maximum": 6 },
+              "text": { "type": "string" }
+            }
+          }
+        },
+        "forms": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "fields": { "type": "integer" },
+              "hasLabels": { "type": "boolean" }
+            }
+          }
+        },
+        "images": {
+          "type": "object",
+          "properties": {
+            "total": { "type": "integer" },
+            "withAlt": { "type": "integer" },
+            "decorative": { "type": "integer" }
+          }
+        },
+        "landmarks": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "completedAt": "2026-01-11T01:30:52.192Z",
+  "screens": [
+    "generated/screens/login-propagated.png",
+    "generated/screens/home-propagated.png",
+    "generated/screens/task-drawer-propagated.png",
+    "generated/screens/calendar-propagated.png",
+    "generated/screens/analytics-propagated.png",
+    "generated/screens/profile-propagated.png"
+  ],
+  "completed": 6,
+  "failed": 0,
+  "cost": 0.8999999999999999
+}

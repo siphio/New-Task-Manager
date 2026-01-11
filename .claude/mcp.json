@@ -6,6 +6,10 @@
         "shadcn@latest",
         "mcp"
       ]
+    },
+    "archon": {
+      "type": "http",
+      "url": "http://localhost:8051/mcp"
     }
   }
 }
