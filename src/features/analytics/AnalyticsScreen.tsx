@@ -13,7 +13,7 @@ export function AnalyticsScreen() {
 
   return (
     <PageContainer>
-      <div className="pt-6 space-y-6" data-testid="analytics-screen">
+      <div className="pt-6 space-y-5" data-testid="analytics-screen">
         <h1 className="text-2xl font-bold text-text-primary">Your Progress</h1>
 
         {/* Time Filter Tabs */}
@@ -47,12 +47,12 @@ export function AnalyticsScreen() {
         </Tabs>
 
         {/* Main Stats Card */}
-        <div className="p-6 bg-[#222830] rounded-2xl text-center">
+        <div className="p-5 bg-[#222830] rounded-2xl text-center">
           <div className="text-6xl font-bold text-primary mb-2">
             {analytics.tasksCompleted}
           </div>
           <p className="text-muted-foreground">Tasks Completed</p>
-          <div className="flex justify-center gap-8 mt-6">
+          <div className="flex justify-center gap-8 mt-5">
             <div className="text-center">
               <div className="flex items-center gap-1">
                 <span className="text-xl font-bold text-foreground">{analytics.currentStreak}</span>

@@ -23,7 +23,7 @@ export function BottomNav() {
       className="fixed bottom-0 left-0 right-0 z-50 bg-background-secondary border-t border-background-tertiary safe-area-pb"
       data-testid="bottom-nav"
     >
-      <div className="flex items-center justify-around h-16 max-w-lg mx-auto px-4">
+      <div className="flex items-center justify-around h-14 max-w-lg mx-auto">
         {navItems.map((item) => {
           const isActive = location.pathname === item.path;
           const Icon = item.icon;
@@ -36,20 +36,20 @@ export function BottomNav() {
                 setActiveNavItem(item.id);
               }}
               className={cn(
-                'relative flex flex-col items-center justify-center w-16 h-12 rounded-lg transition-colors',
-                'hover:bg-background-tertiary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background',
+                'relative flex flex-col items-center justify-center flex-1 h-full transition-colors',
+                'focus:outline-none',
                 isActive ? 'text-primary' : 'text-muted-foreground'
               )}
               data-testid={`nav-${item.id}`}
               aria-label={item.label}
               aria-current={isActive ? 'page' : undefined}
             >
-              <Icon className="w-6 h-6" />
-              <span className="text-xs mt-1">{item.label}</span>
+              <Icon className="w-5 h-5" />
+              <span className="text-[10px] mt-0.5">{item.label}</span>
               {isActive && (
                 <motion.div
                   layoutId="nav-indicator"
-                  className="absolute -top-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary"
+                  className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-0.5 rounded-full bg-primary"
                   transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                 />
               )}

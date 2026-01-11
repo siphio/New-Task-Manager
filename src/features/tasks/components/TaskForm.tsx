@@ -106,7 +106,6 @@ export function TaskForm({ task, onSuccess }: TaskFormProps) {
           placeholder="Task name..."
           className="text-base bg-[#2a2f38] placeholder:text-muted-foreground"
           data-testid="task-title-input"
-          autoFocus
         />
       </div>
 
@@ -119,13 +118,13 @@ export function TaskForm({ task, onSuccess }: TaskFormProps) {
       {/* Due Date */}
       <div className="space-y-2">
         <label className="text-sm font-medium text-muted-foreground">Due Date</label>
-        <div className="relative">
-          <CalendarIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-muted" />
-          <Input
+        <div className="relative w-full max-w-full overflow-hidden rounded-xl bg-[#2a2f38]">
+          <CalendarIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-muted z-10 pointer-events-none" />
+          <input
             type="date"
             value={dueDate}
             onChange={(e) => setDueDate(e.target.value)}
-            className="pl-10 bg-background-tertiary border-none"
+            className="w-full h-12 pl-10 pr-4 bg-transparent text-foreground text-base rounded-xl border-none outline-none appearance-none [&::-webkit-date-and-time-value]:text-left [&::-webkit-calendar-picker-indicator]:opacity-0"
             data-testid="due-date-picker"
           />
         </div>

@@ -94,7 +94,7 @@ export function useAnalytics(filter: TimeFilter): AnalyticsData {
 
     // Category breakdown
     const categoryCounts: Record<string, number> = {};
-    const categories: Category[] = ['work', 'personal', 'team', 'self-improvement'];
+    const categories: Category[] = ['work', 'personal', 'self-improvement'];
     categories.forEach(cat => { categoryCounts[cat] = 0; });
 
     completedTasks.forEach(t => {

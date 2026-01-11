@@ -7,11 +7,11 @@ interface CategoryPickerProps {
   onChange: (category: Category) => void;
 }
 
-const categories: Category[] = ['work', 'personal', 'team', 'self-improvement'];
+const categories: Category[] = ['work', 'personal', 'self-improvement'];
 
 export function CategoryPicker({ value, onChange }: CategoryPickerProps) {
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex gap-2">
       {categories.map((category) => {
         const isSelected = value === category;
         const color = categoryColors[category];

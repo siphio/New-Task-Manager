@@ -8,10 +8,10 @@ interface CategoryBreakdownProps {
 export function CategoryBreakdown({ data }: CategoryBreakdownProps) {
   return (
     <div className="bg-[#222830] rounded-2xl p-4">
-      <h2 className="text-lg font-semibold text-foreground mb-4">
+      <h2 className="text-lg font-semibold text-foreground mb-3">
         Category Breakdown
       </h2>
-      <div className="space-y-4">
+      <div className="space-y-3">
         {data.map((cat, index) => (
           <div key={cat.category} className="flex items-center gap-3">
             <div
