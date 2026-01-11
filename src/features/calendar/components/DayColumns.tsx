@@ -14,9 +14,9 @@ export function DayColumns() {
           key={day.date.toISOString()}
           onClick={() => setSelectedDate(day.date)}
           className={cn(
-            'relative flex flex-col items-center p-3 rounded-xl transition-colors min-w-[48px]',
+            'relative flex flex-col items-center p-3 rounded-xl transition-all min-w-[48px]',
             day.isSelected
-              ? 'bg-primary text-white'
+              ? 'bg-primary text-white shadow-[0_0_20px_rgba(124,92,255,0.5)]'
               : day.isToday
               ? 'bg-primary/20 text-primary'
               : 'text-muted-foreground hover:bg-[#2a2f38]'
