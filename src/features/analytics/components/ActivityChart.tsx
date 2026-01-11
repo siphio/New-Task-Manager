@@ -18,12 +18,13 @@ export function ActivityChart({ data }: ActivityChartProps) {
     <div className="bg-[#222830] rounded-2xl p-4">
       <h2 className="text-lg font-semibold text-foreground mb-4">Activity</h2>
       <ChartContainer config={chartConfig} className="h-[180px] w-full">
-        <LineChart data={data} accessibilityLayer margin={{ top: 20, right: 20, bottom: 0, left: 0 }}>
+        <LineChart data={data} accessibilityLayer margin={{ top: 20, right: 12, bottom: 0, left: 12 }}>
           <XAxis
             dataKey="day"
             tickLine={false}
             axisLine={false}
             tick={{ fill: '#484F58', fontSize: 12 }}
+            padding={{ left: 10, right: 10 }}
           />
           <YAxis hide />
           <ChartTooltip

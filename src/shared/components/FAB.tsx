@@ -9,7 +9,7 @@ interface FABProps {
 }
 
 export function FAB({ className }: FABProps) {
-  const { openAddTaskModal, isTaskDrawerOpen } = useUIStore();
+  const { openAddTaskModal } = useUIStore();
 
   return (
     <motion.button
@@ -33,12 +33,7 @@ export function FAB({ className }: FABProps) {
       data-testid="fab-button"
       aria-label="Add new task"
     >
-      <motion.div
-        animate={{ rotate: isTaskDrawerOpen ? 45 : 0 }}
-        transition={{ duration: 0.2 }}
-      >
-        <Plus className="w-6 h-6" />
-      </motion.div>
+      <Plus className="w-6 h-6" />
     </motion.button>
   );
 }

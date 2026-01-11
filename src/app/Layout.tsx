@@ -3,10 +3,12 @@ import { AnimatePresence } from 'framer-motion';
 import { BottomNav } from '@/shared/components/BottomNav';
 import { FAB } from '@/shared/components/FAB';
 import { TaskDrawer } from '@/features/tasks';
+import { useUIStore } from '@/shared/store';
 
 export function Layout() {
   const location = useLocation();
-  const showFAB = location.pathname !== '/profile';
+  const { isTaskDrawerOpen } = useUIStore();
+  const showFAB = location.pathname !== '/profile' && !isTaskDrawerOpen;
 
   return (
     <div className="min-h-screen bg-background">
