@@ -44,8 +44,8 @@ export function SettingItem({
       data-testid={testId}
     >
       <div className="flex items-center gap-3">
-        <Icon className="w-5 h-5 text-text-secondary" />
-        <span className="text-text-primary">{label}</span>
+        <Icon className="w-5 h-5 text-primary" />
+        <span className="text-foreground">{label}</span>
       </div>
 
       {hasToggle ? (
@@ -55,9 +55,9 @@ export function SettingItem({
           onClick={(e) => e.stopPropagation()}
         />
       ) : value ? (
-        <span className="text-text-secondary">{value}</span>
+        <span className="text-muted-foreground">{value}</span>
       ) : (
-        <ChevronRight className="w-5 h-5 text-text-muted" />
+        <ChevronRight className="w-5 h-5 text-muted-foreground" />
       )}
     </button>
   );

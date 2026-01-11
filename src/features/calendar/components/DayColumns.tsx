@@ -14,12 +14,12 @@ export function DayColumns() {
           key={day.date.toISOString()}
           onClick={() => setSelectedDate(day.date)}
           className={cn(
-            'relative flex flex-col items-center py-2 px-1 rounded-lg transition-colors',
+            'relative flex flex-col items-center p-3 rounded-xl transition-colors min-w-[48px]',
             day.isSelected
-              ? 'bg-accent-primary text-white'
+              ? 'bg-primary text-white'
               : day.isToday
-              ? 'bg-accent-primary/20 text-accent-primary'
-              : 'text-text-secondary hover:bg-background-tertiary'
+              ? 'bg-primary/20 text-primary'
+              : 'text-muted-foreground hover:bg-[#2a2f38]'
           )}
           data-testid={`day-column-${day.dayName.toLowerCase()}`}
         >
@@ -30,7 +30,7 @@ export function DayColumns() {
             <motion.span
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              className="absolute -bottom-1 w-5 h-5 flex items-center justify-center text-[10px] font-medium bg-accent-primary text-white rounded-full"
+              className="absolute -bottom-1 w-5 h-5 flex items-center justify-center text-[10px] font-medium bg-primary text-white rounded-full"
             >
               {day.taskCount > 9 ? '9+' : day.taskCount}
             </motion.span>

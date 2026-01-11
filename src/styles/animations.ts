@@ -70,3 +70,19 @@ export const springConfig = {
   damping: 20,
   stiffness: 300,
 };
+
+// Button press feedback
+export const buttonPressVariants: Variants = {
+  tap: { scale: 0.95 },
+};
+
+// Card press feedback
+export const cardPressVariants: Variants = {
+  tap: { scale: 0.98 },
+};
+
+// FAB rotation when drawer is open
+export const fabRotationVariants: Variants = {
+  closed: { rotate: 0 },
+  open: { rotate: 45 },
+};

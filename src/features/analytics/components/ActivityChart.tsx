@@ -1,4 +1,4 @@
-import { Bar, BarChart, XAxis, YAxis } from 'recharts';
+import { Line, LineChart, XAxis, YAxis } from 'recharts';
 import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from '@/shared/components/ui/chart';
 import { DayActivity } from '@/shared/types';
 
@@ -9,16 +9,16 @@ interface ActivityChartProps {
 const chartConfig = {
   count: {
     label: 'Tasks',
-    color: '#0A84FF',
+    color: '#a5b4fc',
   },
 } satisfies ChartConfig;
 
 export function ActivityChart({ data }: ActivityChartProps) {
   return (
-    <div className="bg-background-secondary rounded-xl p-4">
-      <h2 className="text-lg font-semibold text-text-primary mb-4">Activity</h2>
+    <div className="bg-[#222830] rounded-2xl p-4">
+      <h2 className="text-lg font-semibold text-foreground mb-4">Activity</h2>
       <ChartContainer config={chartConfig} className="h-[180px] w-full">
-        <BarChart data={data} accessibilityLayer>
+        <LineChart data={data} accessibilityLayer margin={{ top: 20, right: 20, bottom: 0, left: 0 }}>
           <XAxis
             dataKey="day"
             tickLine={false}
@@ -28,15 +28,27 @@ export function ActivityChart({ data }: ActivityChartProps) {
           <YAxis hide />
           <ChartTooltip
             content={<ChartTooltipContent />}
-            cursor={{ fill: '#21262D' }}
+            cursor={{ stroke: '#3a3f4b' }}
           />
-          <Bar
+          <Line
+            type="monotone"
             dataKey="count"
-            fill="#0A84FF"
-            radius={[4, 4, 0, 0]}
-            maxBarSize={40}
+            stroke="#a5b4fc"
+            strokeWidth={2}
+            dot={{
+              fill: '#a5b4fc',
+              stroke: '#a5b4fc',
+              strokeWidth: 2,
+              r: 4,
+            }}
+            activeDot={{
+              fill: '#a5b4fc',
+              stroke: '#ffffff',
+              strokeWidth: 2,
+              r: 6,
+            }}
           />
-        </BarChart>
+        </LineChart>
       </ChartContainer>
     </div>
   );

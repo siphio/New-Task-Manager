@@ -37,8 +37,8 @@ export function BottomNav() {
               }}
               className={cn(
                 'relative flex flex-col items-center justify-center w-16 h-12 rounded-lg transition-colors',
-                'hover:bg-background-tertiary focus:outline-none focus:ring-2 focus:ring-accent-primary focus:ring-offset-2 focus:ring-offset-background',
-                isActive ? 'text-accent-primary' : 'text-text-secondary'
+                'hover:bg-background-tertiary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background',
+                isActive ? 'text-primary' : 'text-muted-foreground'
               )}
               data-testid={`nav-${item.id}`}
               aria-label={item.label}
@@ -49,7 +49,7 @@ export function BottomNav() {
               {isActive && (
                 <motion.div
                   layoutId="nav-indicator"
-                  className="absolute -top-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-accent-primary"
+                  className="absolute -top-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary"
                   transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                 />
               )}

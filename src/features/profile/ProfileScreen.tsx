@@ -4,7 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/shared/components/ui/avat
 import { useAuth } from '@/app/providers';
 import { useSettingsStore, useTaskStore } from '@/shared/store';
 import { useAnalytics } from '@/features/analytics/hooks/useAnalytics';
-import { Bell, Target, FolderOpen, RefreshCw, LogOut } from 'lucide-react';
+import { Bell, Target, FolderOpen, RefreshCw, LogOut, ListTodo, Flame, PieChart } from 'lucide-react';
 import { SettingItem } from './components/SettingItem';
 import { DailyGoalPicker } from './components/DailyGoalPicker';
 import { SignOutDialog } from './components/SignOutDialog';
@@ -36,34 +36,41 @@ export function ProfileScreen() {
         <div className="flex flex-col items-center mb-8">
           <Avatar className="w-20 h-20 mb-4">
             <AvatarImage src="" alt={displayName} />
-            <AvatarFallback className="bg-accent-primary text-white text-xl">
+            <AvatarFallback className="bg-primary text-white text-xl font-bold">
               {initials}
             </AvatarFallback>
           </Avatar>
-          <h1 className="text-xl font-bold text-text-primary">{displayName}</h1>
-          <button className="text-sm text-accent-primary mt-1">Edit Profile</button>
+          <h1 className="text-xl font-bold text-foreground">{displayName}</h1>
+          <button className="text-sm text-primary mt-1">Edit Profile</button>
         </div>
 
         {/* Stats Row */}
-        <div className="grid grid-cols-3 gap-4 mb-8">
-          <div className="text-center">
-            <span className="text-2xl font-bold text-text-primary">{totalTasks}</span>
-            <p className="text-xs text-text-secondary mt-1">Total Tasks</p>
+        <div className="flex gap-3 mb-8">
+          <div className="flex-1 py-4 px-3 bg-[#222830] rounded-2xl text-center">
+            <div className="flex items-center justify-center gap-2 mb-1">
+              <ListTodo className="w-5 h-5 text-primary" />
+              <span className="text-2xl font-bold text-foreground">{totalTasks}</span>
+            </div>
+            <div className="text-xs text-muted-foreground">Total Tasks</div>
           </div>
-          <div className="text-center">
-            <span className="text-2xl font-bold text-text-primary">{bestStreak}</span>
-            <p className="text-xs text-text-secondary mt-1">Best Streak</p>
+          <div className="flex-1 py-4 px-3 bg-[#222830] rounded-2xl text-center">
+            <div className="flex items-center justify-center gap-2 mb-1">
+              <Flame className="w-5 h-5 text-primary" />
+              <span className="text-2xl font-bold text-foreground">{bestStreak}</span>
+            </div>
+            <div className="text-xs text-muted-foreground">Best Streak</div>
           </div>
-          <div className="text-center">
-            <span className="text-2xl font-bold text-text-primary">
-              {analytics.completionRate}%
-            </span>
-            <p className="text-xs text-text-secondary mt-1">Rate</p>
+          <div className="flex-1 py-4 px-3 bg-[#222830] rounded-2xl text-center">
+            <div className="flex items-center justify-center gap-2 mb-1">
+              <PieChart className="w-5 h-5 text-primary" />
+              <span className="text-2xl font-bold text-foreground">{analytics.completionRate}%</span>
+            </div>
+            <div className="text-xs text-muted-foreground">Rate</div>
           </div>
         </div>
 
         {/* Settings List */}
-        <div className="bg-background-secondary rounded-xl overflow-hidden">
+        <div className="bg-[#222830] rounded-2xl overflow-hidden divide-y divide-[#3a3f4b]">
           <SettingItem
             icon={Bell}
             label="Notifications"
@@ -93,14 +100,14 @@ export function ProfileScreen() {
         </div>
 
         {/* Upgrade Banner */}
-        <button className="w-full mt-6 p-4 bg-accent-warning/20 rounded-xl flex items-center justify-center gap-2 text-accent-warning font-medium">
+        <button className="w-full mt-6 p-4 bg-primary rounded-2xl flex items-center justify-center gap-2 text-white font-medium shadow-[0_0_30px_rgba(124,92,255,0.4)] hover:shadow-[0_0_40px_rgba(124,92,255,0.5)] transition-shadow">
           Upgrade to Pro
         </button>
 
         {/* Sign Out */}
         <button
           onClick={() => setShowSignOutDialog(true)}
-          className="w-full mt-4 p-4 text-accent-error flex items-center justify-center gap-2"
+          className="w-full mt-4 p-4 text-muted-foreground hover:text-foreground flex items-center justify-center gap-2 transition-colors"
           data-testid="sign-out-button"
         >
           <LogOut className="w-5 h-5" />

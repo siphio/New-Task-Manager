@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Flame, TrendingUp } from 'lucide-react';
+import { Flame } from 'lucide-react';
 import { PageContainer } from '@/shared/components/PageContainer';
 import { Tabs, TabsList, TabsTrigger } from '@/shared/components/ui/tabs';
 import { TimeFilter } from '@/shared/types';
@@ -21,34 +21,48 @@ export function AnalyticsScreen() {
           value={filter}
           onValueChange={(v) => setFilter(v as TimeFilter)}
         >
-          <TabsList className="grid w-full grid-cols-3 bg-background-secondary">
-            <TabsTrigger value="week" data-testid="filter-week">Week</TabsTrigger>
-            <TabsTrigger value="month" data-testid="filter-month">Month</TabsTrigger>
-            <TabsTrigger value="year" data-testid="filter-year">Year</TabsTrigger>
+          <TabsList className="w-full bg-transparent border-b border-[#3a3f4b] rounded-none p-0">
+            <TabsTrigger
+              value="week"
+              data-testid="filter-week"
+              className="flex-1 pb-3 rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:text-primary text-muted-foreground bg-transparent"
+            >
+              Week
+            </TabsTrigger>
+            <TabsTrigger
+              value="month"
+              data-testid="filter-month"
+              className="flex-1 pb-3 rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:text-primary text-muted-foreground bg-transparent"
+            >
+              Month
+            </TabsTrigger>
+            <TabsTrigger
+              value="year"
+              data-testid="filter-year"
+              className="flex-1 pb-3 rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:text-primary text-muted-foreground bg-transparent"
+            >
+              Year
+            </TabsTrigger>
           </TabsList>
         </Tabs>
 
         {/* Main Stats Card */}
-        <div className="bg-background-secondary rounded-2xl p-6">
-          <div className="text-center">
-            <span className="text-5xl font-bold text-accent-primary">
-              {analytics.tasksCompleted}
-            </span>
-            <p className="text-text-secondary mt-2">Tasks Completed</p>
+        <div className="p-6 bg-[#222830] rounded-2xl text-center">
+          <div className="text-6xl font-bold text-primary mb-2">
+            {analytics.tasksCompleted}
           </div>
-          <div className="flex justify-center gap-8 mt-4">
-            <div className="flex items-center gap-2 text-center">
-              <Flame className="w-5 h-5 text-accent-warning" />
-              <span className="text-lg font-semibold text-text-primary">
-                {analytics.currentStreak} day streak
-              </span>
+          <p className="text-muted-foreground">Tasks Completed</p>
+          <div className="flex justify-center gap-8 mt-6">
+            <div className="text-center">
+              <div className="flex items-center gap-1">
+                <span className="text-xl font-bold text-foreground">{analytics.currentStreak}</span>
+                <Flame className="w-5 h-5 text-amber-400" />
+              </div>
+              <p className="text-xs text-muted-foreground">Day Streak</p>
             </div>
-            <div className="flex items-center gap-2 text-center">
-              <TrendingUp className="w-5 h-5 text-accent-success" />
-              <span className="text-lg font-semibold text-text-primary">
-                {analytics.completionRate}%
-              </span>
-              <span className="text-text-secondary">rate</span>
+            <div className="text-center">
+              <span className="text-xl font-bold text-foreground">{analytics.completionRate}%</span>
+              <p className="text-xs text-muted-foreground">Completion Rate</p>
             </div>
           </div>
         </div>

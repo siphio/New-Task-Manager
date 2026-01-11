@@ -3,7 +3,6 @@ import { format } from 'date-fns';
 import { Calendar as CalendarIcon } from 'lucide-react';
 import { Button } from '@/shared/components/ui/button';
 import { Input } from '@/shared/components/ui/input';
-import { Label } from '@/shared/components/ui/label';
 import { Textarea } from '@/shared/components/ui/textarea';
 import { CategoryPicker } from './CategoryPicker';
 import { PriorityPicker } from './PriorityPicker';
@@ -100,11 +99,12 @@ export function TaskForm({ task, onSuccess }: TaskFormProps) {
     <form onSubmit={handleSubmit} className="space-y-6">
       {/* Title */}
       <div className="space-y-2">
+        <label className="text-sm font-medium text-muted-foreground">Task Name</label>
         <Input
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Task name..."
-          className="text-lg bg-transparent border-none px-0 placeholder:text-text-muted focus-visible:ring-0"
+          className="text-base bg-[#2a2f38] placeholder:text-muted-foreground"
           data-testid="task-title-input"
           autoFocus
         />
@@ -112,12 +112,13 @@ export function TaskForm({ task, onSuccess }: TaskFormProps) {
 
       {/* Category */}
       <div className="space-y-2">
+        <label className="text-sm font-medium text-muted-foreground">Category</label>
         <CategoryPicker value={category} onChange={setCategory} />
       </div>
 
       {/* Due Date */}
       <div className="space-y-2">
-        <Label className="text-text-secondary">Due Date</Label>
+        <label className="text-sm font-medium text-muted-foreground">Due Date</label>
         <div className="relative">
           <CalendarIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-text-muted" />
           <Input
@@ -132,11 +133,13 @@ export function TaskForm({ task, onSuccess }: TaskFormProps) {
 
       {/* Priority */}
       <div className="space-y-2">
+        <label className="text-sm font-medium text-muted-foreground">Priority</label>
         <PriorityPicker value={priority} onChange={setPriority} />
       </div>
 
       {/* Description */}
       <div className="space-y-2">
+        <label className="text-sm font-medium text-muted-foreground">Notes</label>
         <Textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}
@@ -162,7 +165,7 @@ export function TaskForm({ task, onSuccess }: TaskFormProps) {
       <Button
         type="submit"
         disabled={loading || !title.trim()}
-        className="w-full bg-accent-primary hover:bg-accent-primary/90 text-white"
+        className="w-full bg-primary hover:bg-primary/90 text-white shadow-[0_0_20px_rgba(124,92,255,0.3)]"
         data-testid="create-task-button"
       >
         {loading ? 'Saving...' : isEditing ? 'Save Changes' : 'Create Task'}

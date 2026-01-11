@@ -7,8 +7,8 @@ interface CategoryBreakdownProps {
 
 export function CategoryBreakdown({ data }: CategoryBreakdownProps) {
   return (
-    <div className="bg-background-secondary rounded-xl p-4">
-      <h2 className="text-lg font-semibold text-text-primary mb-4">
+    <div className="bg-[#222830] rounded-2xl p-4">
+      <h2 className="text-lg font-semibold text-foreground mb-4">
         Category Breakdown
       </h2>
       <div className="space-y-4">
@@ -18,10 +18,10 @@ export function CategoryBreakdown({ data }: CategoryBreakdownProps) {
               className="w-3 h-3 rounded-full flex-shrink-0"
               style={{ backgroundColor: cat.color }}
             />
-            <span className="flex-1 text-text-primary text-sm">
+            <span className="flex-1 text-foreground text-sm">
               {cat.category}
             </span>
-            <div className="w-24 h-2 bg-background-tertiary rounded-full overflow-hidden">
+            <div className="w-24 h-2 bg-[#2a2f38] rounded-full overflow-hidden">
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: `${cat.percentage}%` }}
@@ -30,7 +30,7 @@ export function CategoryBreakdown({ data }: CategoryBreakdownProps) {
                 style={{ backgroundColor: cat.color }}
               />
             </div>
-            <span className="text-sm text-text-secondary w-10 text-right">
+            <span className="text-sm text-muted-foreground w-10 text-right">
               {cat.percentage}%
             </span>
           </div>

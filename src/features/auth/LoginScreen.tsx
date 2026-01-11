@@ -16,7 +16,7 @@ export function LoginScreen() {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="animate-spin w-8 h-8 border-2 border-accent-primary border-t-transparent rounded-full" />
+        <div className="animate-spin w-8 h-8 border-2 border-primary border-t-transparent rounded-full" />
       </div>
     );
   }
@@ -68,7 +68,7 @@ export function LoginScreen() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-3 bg-background-secondary border border-background-tertiary rounded-lg text-text-primary placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-accent-primary"
+              className="w-full px-4 py-3 bg-[#2a2f38] border border-[#3a3f4b] rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
               placeholder="you@example.com"
               required
               data-testid="email-input"
@@ -84,7 +84,7 @@ export function LoginScreen() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-3 bg-background-secondary border border-background-tertiary rounded-lg text-text-primary placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-accent-primary"
+              className="w-full px-4 py-3 bg-[#2a2f38] border border-[#3a3f4b] rounded-xl text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary"
               placeholder="••••••••"
               required
               minLength={6}
@@ -98,7 +98,7 @@ export function LoginScreen() {
 
           <Button
             type="submit"
-            className="w-full bg-accent-primary hover:bg-accent-primary/90 text-white py-3"
+            className="w-full bg-primary hover:bg-primary/90 text-white py-3 shadow-[0_0_20px_rgba(124,92,255,0.3)]"
             disabled={loading}
             data-testid="login-button"
           >
@@ -112,7 +112,7 @@ export function LoginScreen() {
           <button
             type="button"
             onClick={() => setIsSignUp(!isSignUp)}
-            className="text-accent-primary hover:underline"
+            className="text-primary hover:underline"
           >
             {isSignUp ? 'Sign In' : 'Sign Up'}
           </button>
@@ -129,7 +129,7 @@ export function LoginScreen() {
         <Button
           type="button"
           variant="outline"
-          className="w-full border-background-tertiary text-text-secondary hover:bg-background-secondary py-3"
+          className="w-full border-[#3a3f4b] text-foreground hover:bg-[#222830] py-3"
           onClick={continueAsGuest}
           data-testid="guest-button"
         >

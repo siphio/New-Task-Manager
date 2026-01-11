@@ -22,15 +22,14 @@ export function CategoryPicker({ value, onChange }: CategoryPickerProps) {
             type="button"
             onClick={() => onChange(category)}
             className={cn(
-              'px-3 py-1.5 rounded-full text-sm font-medium transition-all',
-              'border-2 min-h-[36px]',
+              'px-4 py-2 rounded-full text-sm font-medium transition-all',
+              'border min-h-[40px]',
               isSelected
-                ? 'text-white'
-                : 'text-text-secondary border-background-tertiary hover:border-text-muted'
+                ? 'text-white border-transparent'
+                : 'text-muted-foreground border-[#3a3f4b] hover:border-muted-foreground'
             )}
             style={{
               backgroundColor: isSelected ? color : 'transparent',
-              borderColor: isSelected ? color : undefined,
             }}
             data-testid={`category-${category}`}
           >

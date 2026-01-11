@@ -9,7 +9,7 @@ interface FABProps {
 }
 
 export function FAB({ className }: FABProps) {
-  const { openAddTaskModal } = useUIStore();
+  const { openAddTaskModal, isTaskDrawerOpen } = useUIStore();
 
   return (
     <motion.button
@@ -22,17 +22,23 @@ export function FAB({ className }: FABProps) {
       className={cn(
         'fixed bottom-20 right-4 z-[60]',
         'w-14 h-14 rounded-full',
-        'bg-accent-primary text-white',
+        'bg-primary text-white',
         'flex items-center justify-center',
-        'shadow-lg shadow-accent-primary/25',
-        'focus:outline-none focus:ring-2 focus:ring-accent-primary focus:ring-offset-2 focus:ring-offset-background',
+        'shadow-[0_0_30px_rgba(124,92,255,0.4)]',
+        'hover:shadow-[0_0_40px_rgba(124,92,255,0.5)]',
+        'focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background',
         'md:bottom-8 md:right-8',
         className
       )}
       data-testid="fab-button"
       aria-label="Add new task"
     >
-      <Plus className="w-6 h-6" />
+      <motion.div
+        animate={{ rotate: isTaskDrawerOpen ? 45 : 0 }}
+        transition={{ duration: 0.2 }}
+      >
+        <Plus className="w-6 h-6" />
+      </motion.div>
     </motion.button>
   );
 }

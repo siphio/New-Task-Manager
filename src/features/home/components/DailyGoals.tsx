@@ -29,8 +29,8 @@ export function DailyGoals({ dailyGoal = 10 }: DailyGoalsProps) {
               r={radius}
               fill="none"
               stroke="currentColor"
-              strokeWidth="2"
-              className="text-background-tertiary"
+              strokeWidth="3"
+              className="text-[#3a3f4b]"
             />
             {/* Progress circle */}
             <motion.circle
@@ -39,13 +39,13 @@ export function DailyGoals({ dailyGoal = 10 }: DailyGoalsProps) {
               r={radius}
               fill="none"
               stroke="currentColor"
-              strokeWidth="2"
+              strokeWidth="3"
               strokeLinecap="round"
               strokeDasharray={circumference}
               initial={{ strokeDashoffset: circumference }}
               animate={{ strokeDashoffset }}
               transition={{ duration: 0.5, ease: 'easeOut' }}
-              className="text-accent-primary"
+              className="text-primary"
             />
           </svg>
           <span className="absolute inset-0 flex items-center justify-center text-lg font-bold text-text-primary">
